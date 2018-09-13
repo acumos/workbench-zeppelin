@@ -1,0 +1,90 @@
+{
+  "paragraphs": [
+    {
+      "text": "%livy2.pyspark\n\nfrom numpy import loadtxt\nfrom xgboost import XGBClassifier\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.metrics import accuracy_score\n\n# load data\ndataset \u003d loadtxt(\u0027/tmp/raw-pima-indians-diabetes.csv\u0027, delimiter\u003d\",\")\n# split data into X and y\nX \u003d dataset[:,0:8]\nY \u003d dataset[:,8]\n# split data into train and test sets\nseed \u003d 7\ntest_size \u003d 0.33\nX_train, X_test, y_train, y_test \u003d train_test_split(X, Y, test_size\u003dtest_size, random_state\u003dseed)\n# fit model no training data\nmodel \u003d XGBClassifier()\nmodel.fit(X_train, y_train)\n# make predictions for test data\ny_pred \u003d model.predict(X_test)\npredictions \u003d [round(value) for value in y_pred]\n# evaluate predictions\naccuracy \u003d accuracy_score(y_test, predictions)\nprint(\"Accuracy: %.2f%%\" % (accuracy * 100.0))\n\n",
+      "user": "ei947t",
+      "dateUpdated": "May 29, 2018 5:43:03 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "/tmp/raw-pima-indians-diabetes.csv not found."
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1527611450840_2060841026",
+      "id": "20180523-193420_662935404",
+      "dateCreated": "May 29, 2018 4:30:50 PM",
+      "dateStarted": "May 29, 2018 5:43:03 PM",
+      "dateFinished": "May 29, 2018 5:43:04 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%livy.pyspark\n",
+      "dateUpdated": "May 29, 2018 4:30:50 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1527611450841_2060456277",
+      "id": "20180523-194629_65851690",
+      "dateCreated": "May 29, 2018 4:30:50 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Spark2 ML Examples/Spark2 ML - pyspark - XGBoost",
+  "id": "2DEFU11C4",
+  "angularObjects": {
+    "2DBF32B9V:shared_process": [],
+    "2DAKX6YNK:shared_process": [],
+    "2DCHDB8ST:shared_process": [],
+    "2DCBRJW6W:shared_process": [],
+    "2DE1DD1E9:shared_process": [],
+    "2DDRJ9Z4V:shared_process": [],
+    "2DBM1YCNA:shared_process": [],
+    "2DBG86T36:shared_process": [],
+    "2DB49WM37:shared_process": [],
+    "2DE79S694:shared_process": [],
+    "2DEDXBGB4:shared_process": [],
+    "2DCSY7TZ4:shared_process": [],
+    "2DASADA8S:shared_process": [],
+    "2DFNS3QEU:shared_process": [],
+    "2DDWF7M2H:shared_process": [],
+    "2DBQYU7QK:shared_process": [],
+    "2DAMZQ3Q7:shared_process": [],
+    "2DC23YM3T:shared_process": [],
+    "2DDXUQDU6:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

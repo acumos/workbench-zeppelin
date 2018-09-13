@@ -1,0 +1,81 @@
+{
+  "paragraphs": [
+    {
+      "text": "%jdbc\n\nshow tables",
+      "user": "lf6847",
+      "dateUpdated": "Jun 7, 2018 9:31:46 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sql",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "tab_name\nemp\nfeng\nfengnew\nhiveorctest9\nirisscoring\nnewlivytable\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1528406505803_1633071907",
+      "id": "20180531-172850_465852322",
+      "dateCreated": "Jun 7, 2018 9:21:45 PM",
+      "dateStarted": "Jun 7, 2018 9:31:46 PM",
+      "dateFinished": "Jun 7, 2018 9:31:53 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n",
+      "user": "lf6847",
+      "dateUpdated": "Jun 7, 2018 9:31:27 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1528407087530_141243891",
+      "id": "20180607-213127_296765764",
+      "dateCreated": "Jun 7, 2018 9:31:27 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Hive Interpreter Example",
+  "id": "2DG9DAQKE",
+  "angularObjects": {
+    "2DBF32B9V:shared_process": [],
+    "2DAKX6YNK:shared_process": [],
+    "2DCHDB8ST:shared_process": [],
+    "2DCBRJW6W:shared_process": [],
+    "2DE1DD1E9:shared_process": [],
+    "2DDRJ9Z4V:shared_process": [],
+    "2DBM1YCNA:shared_process": [],
+    "2DBG86T36:shared_process": [],
+    "2DB49WM37:shared_process": [],
+    "2DE79S694:shared_process": [],
+    "2DEDXBGB4:shared_process": [],
+    "2DCSY7TZ4:shared_process": [],
+    "2DFNS3QEU:shared_process": [],
+    "2DASADA8S:shared_process": [],
+    "2DDWF7M2H:shared_process": [],
+    "2DBQYU7QK:shared_process": [],
+    "2DAMZQ3Q7:shared_process": [],
+    "2DC23YM3T:shared_process": [],
+    "2DDXUQDU6:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

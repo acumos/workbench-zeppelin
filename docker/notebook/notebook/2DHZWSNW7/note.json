@@ -1,0 +1,117 @@
+{
+  "paragraphs": [
+    {
+      "text": "%sh\n\nls -ltr /etc/krb*",
+      "user": "lf6847",
+      "dateUpdated": "Jun 7, 2018 8:02:35 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "lrwxrwxrwx 1 root root 24 Jun  7 19:56 /etc/krb5.conf -\u003e /zeppelin/conf/krb5.conf\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1528401736546_820245634",
+      "id": "20180607-200216_1980479567",
+      "dateCreated": "Jun 7, 2018 8:02:16 PM",
+      "dateStarted": "Jun 7, 2018 8:02:35 PM",
+      "dateFinished": "Jun 7, 2018 8:02:37 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n\ncat /etc/krb5.conf\n",
+      "user": "lf6847",
+      "dateUpdated": "Jun 7, 2018 8:03:07 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/text"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[libdefaults]\n\tdefault_realm \u003d ATHENA.MIT.EDU\n\n# The following krb5.conf variables are only for MIT Kerberos.\n\tkrb4_config \u003d /etc/krb.conf\n\tkrb4_realms \u003d /etc/krb.realms\n\tkdc_timesync \u003d 1\n\tccache_type \u003d 4\n\tforwardable \u003d true\n\tproxiable \u003d true\n\n# The following encryption type specification will be used by MIT Kerberos\n# if uncommented.  In general, the defaults in the MIT Kerberos code are\n# correct and overriding these specifications only serves to disable new\n# encryption types as they are added, creating interoperability problems.\n#\n# Thie only time when you might need to uncomment these lines and change\n# the enctypes is if you have local software that will break on ticket\n# caches containing ticket encryption types it doesn\u0027t know about (such as\n# old versions of Sun Java).\n\n#\tdefault_tgs_enctypes \u003d des3-hmac-sha1\n#\tdefault_tkt_enctypes \u003d des3-hmac-sha1\n#\tpermitted_enctypes \u003d des3-hmac-sha1\n\n# The following libdefaults parameters are only for Heimdal Kerberos.\n\tv4_instance_resolve \u003d false\n\tv4_name_convert \u003d {\n\t\thost \u003d {\n\t\t\trcmd \u003d host\n\t\t\tftp \u003d ftp\n\t\t}\n\t\tplain \u003d {\n\t\t\tsomething \u003d something-else\n\t\t}\n\t}\n\tfcc-mit-ticketflags \u003d true\n\n[realms]\n\tATHENA.MIT.EDU \u003d {\n\t\tkdc \u003d kerberos.mit.edu:88\n\t\tkdc \u003d kerberos-1.mit.edu:88\n\t\tkdc \u003d kerberos-2.mit.edu:88\n\t\tadmin_server \u003d kerberos.mit.edu\n\t\tdefault_domain \u003d mit.edu\n\t}\n\tMEDIA-LAB.MIT.EDU \u003d {\n\t\tkdc \u003d kerberos.media.mit.edu\n\t\tadmin_server \u003d kerberos.media.mit.edu\n\t}\n\tZONE.MIT.EDU \u003d {\n\t\tkdc \u003d casio.mit.edu\n\t\tkdc \u003d seiko.mit.edu\n\t\tadmin_server \u003d casio.mit.edu\n\t}\n\tMOOF.MIT.EDU \u003d {\n\t\tkdc \u003d three-headed-dogcow.mit.edu:88\n\t\tkdc \u003d three-headed-dogcow-1.mit.edu:88\n\t\tadmin_server \u003d three-headed-dogcow.mit.edu\n\t}\n\tCSAIL.MIT.EDU \u003d {\n\t\tkdc \u003d kerberos-1.csail.mit.edu\n\t\tkdc \u003d kerberos-2.csail.mit.edu\n\t\tadmin_server \u003d kerberos.csail.mit.edu\n\t\tdefault_domain \u003d csail.mit.edu\n\t\tkrb524_server \u003d krb524.csail.mit.edu\n\t}\n\tIHTFP.ORG \u003d {\n\t\tkdc \u003d kerberos.ihtfp.org\n\t\tadmin_server \u003d kerberos.ihtfp.org\n\t}\n\tGNU.ORG \u003d {\n\t\tkdc \u003d kerberos.gnu.org\n\t\tkdc \u003d kerberos-2.gnu.org\n\t\tkdc \u003d kerberos-3.gnu.org\n\t\tadmin_server \u003d kerberos.gnu.org\n\t}\n\t1TS.ORG \u003d {\n\t\tkdc \u003d kerberos.1ts.org\n\t\tadmin_server \u003d kerberos.1ts.org\n\t}\n\tGRATUITOUS.ORG \u003d {\n\t\tkdc \u003d kerberos.gratuitous.org\n\t\tadmin_server \u003d kerberos.gratuitous.org\n\t}\n\tDOOMCOM.ORG \u003d {\n\t\tkdc \u003d kerberos.doomcom.org\n\t\tadmin_server \u003d kerberos.doomcom.org\n\t}\n\tANDREW.CMU.EDU \u003d {\n\t\tkdc \u003d kerberos.andrew.cmu.edu\n\t\tkdc \u003d kerberos2.andrew.cmu.edu\n\t\tkdc \u003d kerberos3.andrew.cmu.edu\n\t\tadmin_server \u003d kerberos.andrew.cmu.edu\n\t\tdefault_domain \u003d andrew.cmu.edu\n\t}\n\tCS.CMU.EDU \u003d {\n\t\tkdc \u003d kerberos.cs.cmu.edu\n\t\tkdc \u003d kerberos-2.srv.cs.cmu.edu\n\t\tadmin_server \u003d kerberos.cs.cmu.edu\n\t}\n\tDEMENTIA.ORG \u003d {\n\t\tkdc \u003d kerberos.dementix.org\n\t\tkdc \u003d kerberos2.dementix.org\n\t\tadmin_server \u003d kerberos.dementix.org\n\t}\n\tstanford.edu \u003d {\n\t\tkdc \u003d krb5auth1.stanford.edu\n\t\tkdc \u003d krb5auth2.stanford.edu\n\t\tkdc \u003d krb5auth3.stanford.edu\n\t\tmaster_kdc \u003d krb5auth1.stanford.edu\n\t\tadmin_server \u003d krb5-admin.stanford.edu\n\t\tdefault_domain \u003d stanford.edu\n\t}\n        UTORONTO.CA \u003d {\n                kdc \u003d kerberos1.utoronto.ca\n                kdc \u003d kerberos2.utoronto.ca\n                kdc \u003d kerberos3.utoronto.ca\n                admin_server \u003d kerberos1.utoronto.ca\n                default_domain \u003d utoronto.ca\n\t}\n\n[domain_realm]\n\t.mit.edu \u003d ATHENA.MIT.EDU\n\tmit.edu \u003d ATHENA.MIT.EDU\n\t.media.mit.edu \u003d MEDIA-LAB.MIT.EDU\n\tmedia.mit.edu \u003d MEDIA-LAB.MIT.EDU\n\t.csail.mit.edu \u003d CSAIL.MIT.EDU\n\tcsail.mit.edu \u003d CSAIL.MIT.EDU\n\t.whoi.edu \u003d ATHENA.MIT.EDU\n\twhoi.edu \u003d ATHENA.MIT.EDU\n\t.stanford.edu \u003d stanford.edu\n\t.slac.stanford.edu \u003d SLAC.STANFORD.EDU\n        .toronto.edu \u003d UTORONTO.CA\n        .utoronto.ca \u003d UTORONTO.CA\n\n[login]\n\tkrb4_convert \u003d true\n\tkrb4_get_tickets \u003d false\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1528401755407_-565604580",
+      "id": "20180607-200235_1031342315",
+      "dateCreated": "Jun 7, 2018 8:02:35 PM",
+      "dateStarted": "Jun 7, 2018 8:03:07 PM",
+      "dateFinished": "Jun 7, 2018 8:03:07 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n",
+      "user": "lf6847",
+      "dateUpdated": "Jun 7, 2018 8:02:53 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1528401773898_-488457230",
+      "id": "20180607-200253_1121922833",
+      "dateCreated": "Jun 7, 2018 8:02:53 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "~Trash/test",
+  "id": "2DHZWSNW7",
+  "angularObjects": {
+    "2DBF32B9V:shared_process": [],
+    "2DAKX6YNK:shared_process": [],
+    "2DCHDB8ST:shared_process": [],
+    "2DCBRJW6W:shared_process": [],
+    "2DE1DD1E9:shared_process": [],
+    "2DDRJ9Z4V:shared_process": [],
+    "2DBM1YCNA:shared_process": [],
+    "2DBG86T36:shared_process": [],
+    "2DB49WM37:shared_process": [],
+    "2DE79S694:shared_process": [],
+    "2DEDXBGB4:shared_process": [],
+    "2DCSY7TZ4:shared_process": [],
+    "2DFNS3QEU:shared_process": [],
+    "2DASADA8S:shared_process": [],
+    "2DDWF7M2H:shared_process": [],
+    "2DBQYU7QK:shared_process": [],
+    "2DAMZQ3Q7:shared_process": [],
+    "2DC23YM3T:shared_process": [],
+    "2DDXUQDU6:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}
