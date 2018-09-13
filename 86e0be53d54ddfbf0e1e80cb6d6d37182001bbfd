@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "acd74877_8d0762c5",
+        "filename": "docker/Dockerfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-13T20:25:26Z",
+      "side": 1,
+      "message": "No, this cannot be built by LF.  Must not refer to AT\u0026T internal resources.",
+      "range": {
+        "startLine": 17,
+        "startChar": 19,
+        "endLine": 17,
+        "endChar": 21
+      },
+      "revId": "86e0be53d54ddfbf0e1e80cb6d6d37182001bbfd",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0bd60f5_a89aac87",
+        "filename": "docker/Dockerfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-13T20:25:26Z",
+      "side": 1,
+      "message": "See above",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 44
+      },
+      "revId": "86e0be53d54ddfbf0e1e80cb6d6d37182001bbfd",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9bbfc033_9c38bd74",
+        "filename": "docker/zeppelin_opensource_base/tmpusr_rsa.private",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-13T20:25:26Z",
+      "side": 1,
+      "message": "I expect you really don\u0027t want to publish a private key for the world, not ever.",
+      "revId": "86e0be53d54ddfbf0e1e80cb6d6d37182001bbfd",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
