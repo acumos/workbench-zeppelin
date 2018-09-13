@@ -1,0 +1,76 @@
+{
+  "paragraphs": [
+    {
+      "text": "%sh\n\n# To create kerberos configuration file, replace below quoted content with your krb5.conf file content\n# Please note, there is a symbolic link between /etc/krb5.conf and /opt/zeppelin/conf/krb5.conf. So need to keep krb5.conf location as /opt/zeppelin/conf/krb5.conf\n\necho \"\nREPLACE_WITH_YOUR_krb5.conf_CONTENT\n\" \u003e /opt/zeppelin/conf/krb5.conf\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-09-19 18:16:06.754",
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1537380966751_2032708824",
+      "id": "20180604-195745_726676875",
+      "dateCreated": "2018-09-19 18:16:06.751",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-09-19 18:16:06.754",
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1537380966754_231239093",
+      "id": "20180607-200446_1267990000",
+      "dateCreated": "2018-09-19 18:16:06.754",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Kerberos_setup_Templates/Setup_krb5.conf",
+  "id": "2DSTYNZ6S",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "sh:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

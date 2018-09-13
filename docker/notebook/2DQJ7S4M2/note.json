@@ -1,0 +1,204 @@
+{
+  "paragraphs": [
+    {
+      "text": "%livy2.spark\n\nimport org.apache.spark.ml.classification.LogisticRegression\nimport org.apache.spark.ml.linalg.{Vector, Vectors}\nimport org.apache.spark.ml.param.ParamMap\nimport org.apache.spark.sql.Row\n\n// Prepare training data from a list of (label, features) tuples.\nval training \u003d spark.createDataFrame(Seq((1.0, Vectors.dense(0.0, 1.1, 0.1)),(0.0, Vectors.dense(2.0, 1.0, -1.0)),(0.0, Vectors.dense(2.0, 1.3, 1.0)),(1.0, Vectors.dense(0.0, 1.2, -0.5)))).toDF(\"label\", \"features\")\n\n// Create a LogisticRegression instance. This instance is an Estimator.\nval lr \u003d new LogisticRegression()\n// Print out the parameters, documentation, and any default values.\nprintln(\"LogisticRegression parameters:\\n\" + lr.explainParams() + \"\\n\")\n\n// We may set parameters using setter methods.\nlr.setMaxIter(10).setRegParam(0.01)\n\n// Learn a LogisticRegression model. This uses the parameters stored in lr.\nval model1 \u003d lr.fit(training)\n\nprintln (\"Model 1 was fit using Reg parameters: \" + model1.toString() )\n// Since model1 is a Model (i.e., a Transformer produced by an Estimator),\n// we can view the parameters it used during fit().\n// This prints the parameter (name: value) pairs, where names are unique IDs for this\n// LogisticRegression instance.\nprintln(\"Model 1 was fit using parameters: \" + model1.parent.extractParamMap)\n\n// We may alternatively specify parameters using a ParamMap,\n// which supports several methods for specifying parameters.\nval paramMap \u003d ParamMap(lr.maxIter -\u003e 20).put(lr.maxIter, 30).put(lr.regParam -\u003e 0.1, lr.threshold -\u003e 0.55)  // Specify multiple Params.\n\n// One can also combine ParamMaps.\nval paramMap2 \u003d ParamMap(lr.probabilityCol -\u003e \"myProbability\")  // Change output column name.\nval paramMapCombined \u003d paramMap ++ paramMap2\n\n// Now learn a new model using the paramMapCombined parameters.\n// paramMapCombined overrides all parameters set earlier via lr.set* methods.\nval model2 \u003d lr.fit(training, paramMapCombined)\nprintln(\"Model 2 was fit using parameters: \" + model2.parent.extractParamMap)\n\n// Prepare test data.\nval test \u003d spark.createDataFrame(Seq((1.0, Vectors.dense(-1.0, 1.5, 1.3)),(0.0, Vectors.dense(0.1, 0.9, 0.2)),(1.0, Vectors.dense(0.0, 2.2, -1.5)))).toDF(\"label\", \"features\")\n\n// Make predictions on test data using the Transformer.transform() method.\n// LogisticRegression.transform will only use the \u0027features\u0027 column.\n// Note that model2.transform() outputs a \u0027myProbability\u0027 column instead of the usual\n// \u0027probability\u0027 column since we renamed the lr.probabilityCol parameter previously.\nmodel2.transform(test).select(\"features\", \"label\", \"myProbability\", \"prediction\").collect().foreach { case Row(features: Vector, label: Double, prob: Vector, prediction: Double) \u003d\u003e\n    println(s\"($features, $label) -\u003e prob\u003d$prob, prediction\u003d$prediction\")\n  }\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-09-19 18:15:35.865",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {
+          "lr.explainParams": "",
+          "model1.parent.extractParamMap": "",
+          "model2.parent.extractParamMap": ""
+        },
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "([-1.0,1.5,1.3], 1.0) -\u003e prob\u003d[0.05707304171033977,0.9429269582896603], prediction\u003d1.0\n([0.1,0.9,0.2], 0.0) -\u003e prob\u003d[0.24323478919827124,0.7567652108017288], prediction\u003d1.0\n([0.0,2.2,-1.5], 1.0) -\u003e prob\u003d[0.10972776114779119,0.8902722388522087], prediction\u003d1.0"
+          },
+          {
+            "type": "HTML",
+            "data": "\u003chr/\u003eSpark Application Id: application_1527284384465_0020\u003cbr/\u003eSpark WebUI: \u003ca href\u003d\"http://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0020/\"\u003ehttp://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0020/\u003c/a\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1537380935864_1213829498",
+      "id": "20180518-151750_619370436",
+      "dateCreated": "2018-09-19 18:15:35.864",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%livy2.spark\n\nimport org.apache.spark.ml.classification.LogisticRegression\n\n// Load training data\nval training \u003d spark.read.format(\"libsvm\").load(\"/tmp/spark2test/sample_libsvm_data.txt\")\n\nval lr \u003d new LogisticRegression().setMaxIter(10).setRegParam(0.3).setElasticNetParam(0.8)\n\n// Fit the model\nval lrModel \u003d lr.fit(training)\n\n// Print the coefficients and intercept for logistic regression\nprintln(s\"Coefficients: ${lrModel.coefficients} Intercept: ${lrModel.intercept}\")\n\n// We can also use the multinomial family for binary classification\nval mlr \u003d new LogisticRegression().setMaxIter(10).setRegParam(0.3).setElasticNetParam(0.8).setFamily(\"multinomial\")\n\nval mlrModel \u003d mlr.fit(training)\n\nmlrModel.save(\"/tmp/spark2test/mlrModel_output_1\")\n\n// Print the coefficients and intercepts for logistic regression with multinomial family\nprintln(s\"Multinomial coefficients: ${mlrModel.coefficientMatrix}\")\nprintln(s\"Multinomial intercepts: ${mlrModel.interceptVector}\")",
+      "user": "anonymous",
+      "dateUpdated": "2018-09-19 18:15:35.865",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {
+          "lrModel.coefficients": "",
+          "lrModel.intercept": "",
+          "mlrModel.coefficientMatrix": "",
+          "mlrModel.interceptVector": ""
+        },
+        "forms": {
+          "lrModel.coefficients": {
+            "type": "TextBox",
+            "name": "lrModel.coefficients",
+            "defaultValue": "",
+            "hidden": false
+          },
+          "lrModel.intercept": {
+            "type": "TextBox",
+            "name": "lrModel.intercept",
+            "defaultValue": "",
+            "hidden": false
+          },
+          "mlrModel.coefficientMatrix": {
+            "type": "TextBox",
+            "name": "mlrModel.coefficientMatrix",
+            "defaultValue": "",
+            "hidden": false
+          },
+          "mlrModel.interceptVector": {
+            "type": "TextBox",
+            "name": "mlrModel.interceptVector",
+            "defaultValue": "",
+            "hidden": false
+          }
+        }
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Multinomial intercepts:"
+          },
+          {
+            "type": "HTML",
+            "data": "\u003chr/\u003eSpark Application Id: application_1527284384465_0020\u003cbr/\u003eSpark WebUI: \u003ca href\u003d\"http://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0020/\"\u003ehttp://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0020/\u003c/a\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1537380935865_1321839276",
+      "id": "20180518-142832_2108631764",
+      "dateCreated": "2018-09-19 18:15:35.865",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%livy2.spark\n\n//export to PMML file\nimport org.apache.spark.mllib.clustering.KMeans\nimport org.apache.spark.mllib.linalg.Vectors\n\n// Load and parse the data\nval data \u003d sc.textFile(\"/tmp/spark2test/kmeans_data.txt\")\nval parsedData \u003d data.map(s \u003d\u003e Vectors.dense(s.split(\u0027 \u0027).map(_.toDouble))).cache()\n\n// Cluster the data into two classes using KMeans\nval numClusters \u003d 2\nval numIterations \u003d 20\nval clusters \u003d KMeans.train(parsedData, numClusters, numIterations)\n\n// Export to PMML to a String in PMML format\nprintln(\"PMML Model:\\n\" + clusters.toPMML)\n\n// Export the model to a local file in PMML format\nclusters.toPMML(\"/tmp/kmeans.xml\")\n\n// Export the model to a directory on a distributed file system in PMML format\nclusters.toPMML(sc, \"/tmp/spark2test/pmmlModleOutput_1\")\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-09-19 18:15:35.866",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003chr/\u003eSpark Application Id: application_1527284384465_0021\u003cbr/\u003eSpark WebUI: \u003ca href\u003d\"http://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0021/\"\u003ehttp://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0021/\u003c/a\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1537380935866_-1097186818",
+      "id": "20180518-143052_1721850077",
+      "dateCreated": "2018-09-19 18:15:35.866",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%livy2.spark\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-09-19 18:15:35.867",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1537380935867_63373822",
+      "id": "20180518-160657_1795650110",
+      "dateCreated": "2018-09-19 18:15:35.867",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Spark2 ML Examples/Spark2 ML - Scala - SparkML",
+  "id": "2DQJ7S4M2",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "livy2:shared_process": [],
+    "sh:shared_process": [],
+    "file:shared_process": [],
+    "livy:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

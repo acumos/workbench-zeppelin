@@ -1,0 +1,91 @@
+{
+  "paragraphs": [
+    {
+      "text": "%sh\n\n# To access HDFS, needs to get a valid Kerberos ticket first. \n# Replace below parameters:\n# YOUR_KEYTAB_FILENAME, your kerberos keytab filename, for example ab1234.keytab\n# YOUR_KERBEROS_PRINCIPAL, kerberos principal contained in keytab file, for example ab1234@Hadoop.att.com\n\nkinit -kt /opt/zeppelin/conf/YOUR_KEYTAB_FILENAME YOUR_KERBEROS_PRINCIPAL\n\nklist",
+      "user": "anonymous",
+      "dateUpdated": "2018-09-19 18:49:54.590",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "editOnDblClick": false,
+          "language": "sh",
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "kinit: Cannot contact any KDC for realm \u0027ATHENA.MIT.EDU\u0027 while getting initial credentials\nklist: Credentials cache file \u0027/tmp/krb5cc_0\u0027 not found\n"
+          },
+          {
+            "type": "TEXT",
+            "data": "ExitValue: 1"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1537380931557_265182201",
+      "id": "20180416-163216_967217055",
+      "dateCreated": "2018-09-19 18:15:31.557",
+      "dateStarted": "2018-09-19 18:49:54.608",
+      "dateFinished": "2018-09-19 18:49:57.496",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%file\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-09-19 18:15:31.562",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/undefined",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1537380931561_-395471575",
+      "id": "20180607-211829_136625496",
+      "dateCreated": "2018-09-19 18:15:31.561",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "HDFS Intepreter Example",
+  "id": "2DT8YBWZK",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "livy2:shared_process": [],
+    "sh:shared_process": [],
+    "file:shared_process": [],
+    "livy:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
