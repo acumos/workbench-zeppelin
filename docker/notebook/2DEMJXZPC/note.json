@@ -1,0 +1,507 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n## Binomial logistic regression",
+      "dateUpdated": "May 29, 2018 4:27:45 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eBinomial logistic regression\u003c/h2\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1527611265510_1273401234",
+      "id": "20180522-145805_1867814320",
+      "dateCreated": "May 29, 2018 4:27:45 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%livy2.sparkr\n# Load training data\ndf \u003c- read.df(\"/tmp/spark2test/sample_libsvm_data.txt\", source \u003d \"libsvm\")\n#head(df)\ntraining \u003c- df\ntest \u003c- df\n\n# Fit an binomial logistic regression model with spark.logit\nmodel \u003c- spark.logit(training, label ~ features, maxIter \u003d 10, regParam \u003d 0.3, elasticNetParam \u003d 0.8)\n\n# Model summary\nsummary(model)\n\n# Prediction\npredictions \u003c- predict(model, test)\nhead(predictions)",
+      "user": "ei947t",
+      "dateUpdated": "May 29, 2018 5:37:43 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/r",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "r",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "label                 features            rawPrediction\n1     0 \u003cenvironment: 0x158ca68\u003e \u003cenvironment: 0x1576860\u003e\n2     1 \u003cenvironment: 0x15542c8\u003e \u003cenvironment: 0x12c61e8\u003e\n3     1 \u003cenvironment: 0x156c5d8\u003e \u003cenvironment: 0x12b7f88\u003e\n4     1  \u003cenvironment: 0xc96128\u003e \u003cenvironment: 0x12aa168\u003e\n5     1 \u003cenvironment: 0x14b6c10\u003e \u003cenvironment: 0x11e9268\u003e\n6     0  \u003cenvironment: 0xac2220\u003e \u003cenvironment: 0x11e0cf8\u003e\n               probability prediction\n1 \u003cenvironment: 0x11d7150\u003e        0.0\n2 \u003cenvironment: 0x11d0f30\u003e        1.0\n3 \u003cenvironment: 0x11cacd8\u003e        1.0\n4 \u003cenvironment: 0x11c42d8\u003e        1.0\n5 \u003cenvironment: 0x11bd218\u003e        1.0\n6 \u003cenvironment: 0x11b4698\u003e        0.0"
+          },
+          {
+            "type": "HTML",
+            "data": "\u003chr/\u003eSpark Application Id: application_1527284384465_0015\u003cbr/\u003eSpark WebUI: \u003ca href\u003d\"http://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0015/\"\u003ehttp://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0015/\u003c/a\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1527611265511_1273016485",
+      "id": "20180522-151741_2047574443",
+      "dateCreated": "May 29, 2018 4:27:45 PM",
+      "dateStarted": "May 29, 2018 5:37:43 PM",
+      "dateFinished": "May 29, 2018 5:38:39 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n## Random Forest Classifier\n",
+      "dateUpdated": "May 29, 2018 5:38:05 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eRandom Forest Classifier\u003c/h2\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1527611265512_1271092740",
+      "id": "20180522-151842_157686275",
+      "dateCreated": "May 29, 2018 4:27:45 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%livy2.sparkr\n\n# Load training data\ndf \u003c- read.df(\"/tmp/spark2test/sample_libsvm_data.txt\", source \u003d \"libsvm\")\ntraining \u003c- df\ntest \u003c- df\n\n\n# Fit a random forest classification model with spark.randomForest\nmodel \u003c- spark.randomForest(training, label ~ features, \"classification\", numTrees \u003d 10)\n\n# Model summary\nsummary(model)\n\n# Prediction\npredictions \u003c- predict(model, test)\nhead(predictions)\n",
+      "user": "ei947t",
+      "dateUpdated": "May 29, 2018 5:38:45 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/r",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "r",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "label                 features            rawPrediction\n1     0 \u003cenvironment: 0x24e7278\u003e \u003cenvironment: 0x249e1a0\u003e\n2     1 \u003cenvironment: 0x24d8918\u003e \u003cenvironment: 0x2495818\u003e\n3     1 \u003cenvironment: 0x24c6cd8\u003e \u003cenvironment: 0x248b600\u003e\n4     1 \u003cenvironment: 0x24be918\u003e \u003cenvironment: 0x24759e8\u003e\n5     1 \u003cenvironment: 0x24b44b8\u003e \u003cenvironment: 0x246c440\u003e\n6     0 \u003cenvironment: 0x24ab2e0\u003e \u003cenvironment: 0x24640f0\u003e\n               probability prediction\n1 \u003cenvironment: 0x2458fc8\u003e        0.0\n2 \u003cenvironment: 0x244f810\u003e        1.0\n3 \u003cenvironment: 0x2445d10\u003e        1.0\n4 \u003cenvironment: 0x2434af0\u003e        1.0\n5 \u003cenvironment: 0x242d838\u003e        1.0\n6 \u003cenvironment: 0x24269a8\u003e        0.0"
+          },
+          {
+            "type": "HTML",
+            "data": "\u003chr/\u003eSpark Application Id: application_1527284384465_0015\u003cbr/\u003eSpark WebUI: \u003ca href\u003d\"http://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0015/\"\u003ehttp://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0015/\u003c/a\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1527611265512_1271092740",
+      "id": "20180522-153921_101833119",
+      "dateCreated": "May 29, 2018 4:27:45 PM",
+      "dateStarted": "May 29, 2018 5:38:45 PM",
+      "dateFinished": "May 29, 2018 5:38:53 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n## Naive Bayes\n",
+      "dateUpdated": "May 29, 2018 5:38:08 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eNaive Bayes\u003c/h2\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1527611265512_1271092740",
+      "id": "20180522-153948_1166780292",
+      "dateCreated": "May 29, 2018 4:27:45 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%livy2.sparkr\ntitanic \u003c- as.data.frame(Titanic)\ntitanicDF \u003c- createDataFrame(titanic[titanic$Freq \u003e 0, -5])\nnbDF \u003c- titanicDF\nnbTestDF \u003c- titanicDF\nnbModel \u003c- spark.naiveBayes(nbDF, Survived ~ Class + Sex + Age)\n\n# Model summary\nsummary(nbModel)\n\n# Prediction\nnbPredictions \u003c- predict(nbModel, nbTestDF)\nhead(nbPredictions)",
+      "user": "ei947t",
+      "dateUpdated": "May 29, 2018 5:40:36 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/r",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "r",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Class    Sex   Age Survived            rawPrediction              probability\n1   3rd   Male Child       No  \u003cenvironment: 0xb2d9d8\u003e  \u003cenvironment: 0xb7f488\u003e\n2   3rd Female Child       No  \u003cenvironment: 0x9f8738\u003e  \u003cenvironment: 0xc93890\u003e\n3   1st   Male Adult       No \u003cenvironment: 0x15b40c8\u003e \u003cenvironment: 0x155ed10\u003e\n4   2nd   Male Adult       No \u003cenvironment: 0x1462cd8\u003e  \u003cenvironment: 0xc9cb00\u003e\n5   3rd   Male Adult       No  \u003cenvironment: 0xf154b0\u003e \u003cenvironment: 0x1576fe8\u003e\n6  Crew   Male Adult       No \u003cenvironment: 0x1545950\u003e \u003cenvironment: 0x12c5bc8\u003e\n  prediction\n1        Yes\n2        Yes\n3        Yes\n4        Yes\n5         No\n6        Yes"
+          },
+          {
+            "type": "HTML",
+            "data": "\u003chr/\u003eSpark Application Id: application_1527284384465_0015\u003cbr/\u003eSpark WebUI: \u003ca href\u003d\"http://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0015/\"\u003ehttp://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0015/\u003c/a\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1527611265513_1270707991",
+      "id": "20180522-162157_1601392830",
+      "dateCreated": "May 29, 2018 4:27:45 PM",
+      "dateStarted": "May 29, 2018 5:40:36 PM",
+      "dateFinished": "May 29, 2018 5:40:45 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n## Survival regression\n",
+      "dateUpdated": "May 29, 2018 5:38:12 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eSurvival regression\u003c/h2\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1527611265513_1270707991",
+      "id": "20180522-162836_1777268133",
+      "dateCreated": "May 29, 2018 4:27:45 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%livy2.sparkr\n# Use the ovarian dataset available in R survival package\nlibrary(survival)\n\n# Fit an accelerated failure time (AFT) survival regression model with spark.survreg\novarianDF \u003c- suppressWarnings(createDataFrame(ovarian))\naftDF \u003c- ovarianDF\naftTestDF \u003c- ovarianDF\naftModel \u003c- spark.survreg(aftDF, Surv(futime, fustat) ~ ecog_ps + rx)\n\n# Model summary\nsummary(aftModel)\n\n# Prediction\naftPredictions \u003c- predict(aftModel, aftTestDF)\nhead(aftPredictions)",
+      "user": "ei947t",
+      "dateUpdated": "May 29, 2018 5:41:37 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/r",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "r",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "futime fustat     age resid_ds rx ecog_ps label prediction\n1     59      1 72.3315        2  1       1    59  1141.7256\n2    115      1 74.4932        2  1       1   115  1141.7256\n3    156      1 66.4658        2  1       2   156   776.8548\n4    421      0 53.3644        2  2       1   421  1937.0893\n5    431      1 50.3397        2  1       1   431  1141.7256\n6    448      0 56.4301        1  1       2   448   776.8548"
+          },
+          {
+            "type": "HTML",
+            "data": "\u003chr/\u003eSpark Application Id: application_1527284384465_0015\u003cbr/\u003eSpark WebUI: \u003ca href\u003d\"http://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0015/\"\u003ehttp://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0015/\u003c/a\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1527611265514_1271862238",
+      "id": "20180522-162308_747867873",
+      "dateCreated": "May 29, 2018 4:27:45 PM",
+      "dateStarted": "May 29, 2018 5:41:37 PM",
+      "dateFinished": "May 29, 2018 5:41:44 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n## K-means\n",
+      "dateUpdated": "May 29, 2018 4:27:45 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eK-means\u003c/h2\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1527611265514_1271862238",
+      "id": "20180522-163152_426414902",
+      "dateCreated": "May 29, 2018 4:27:45 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%livy2.sparkr\nt \u003c- as.data.frame(Titanic)\ntraining \u003c- createDataFrame(t)\ndf_list \u003c- randomSplit(training, c(7,3), 2)\nkmeansDF \u003c- df_list[[1]]\nkmeansTestDF \u003c- df_list[[2]]\nkmeansModel \u003c- spark.kmeans(kmeansDF, ~ Class + Sex + Age + Freq, k \u003d 3)\n\n# Model summary\nsummary(kmeansModel)\n\n# Get fitted result from the k-means model\nhead(fitted(kmeansModel))\n\n# Prediction\nkmeansPredictions \u003c- predict(kmeansModel, kmeansTestDF)\nhead(kmeansPredictions)",
+      "user": "ei947t",
+      "dateUpdated": "May 29, 2018 5:41:58 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/r",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "r",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Class    Sex   Age Survived Freq prediction\n1   1st   Male Child       No    0          0\n2   2nd Female Adult      Yes   80          2\n3   2nd Female Child      Yes   13          0\n4   2nd   Male Child      Yes   11          0\n5   3rd Female Adult      Yes   76          2\n6   3rd   Male Adult       No  387          1"
+          },
+          {
+            "type": "HTML",
+            "data": "\u003chr/\u003eSpark Application Id: application_1527284384465_0015\u003cbr/\u003eSpark WebUI: \u003ca href\u003d\"http://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0015/\"\u003ehttp://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0015/\u003c/a\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1527611265514_1271862238",
+      "id": "20180522-163101_787118323",
+      "dateCreated": "May 29, 2018 4:27:45 PM",
+      "dateStarted": "May 29, 2018 5:41:58 PM",
+      "dateFinished": "May 29, 2018 5:42:05 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n## Collaborative filtering\n",
+      "dateUpdated": "May 29, 2018 4:27:45 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eCollaborative filtering\u003c/h2\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1527611265514_1271862238",
+      "id": "20180522-163324_1775638755",
+      "dateCreated": "May 29, 2018 4:27:45 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%livy2.sparkr\n# Load training data\ndata \u003c- list(list(0, 0, 4.0), list(0, 1, 2.0), list(1, 1, 3.0),\n             list(1, 2, 4.0), list(2, 1, 1.0), list(2, 2, 5.0))\ndf \u003c- createDataFrame(data, c(\"userId\", \"movieId\", \"rating\"))\ntraining \u003c- df\ntest \u003c- df\n\n# Fit a recommendation model using ALS with spark.als\nmodel \u003c- spark.als(training, maxIter \u003d 5, regParam \u003d 0.01, userCol \u003d \"userId\",\n                   itemCol \u003d \"movieId\", ratingCol \u003d \"rating\")\n\n# Model summary\nsummary(model)\n\n# Prediction\npredictions \u003c- predict(model, test)\nhead(predictions)",
+      "user": "ei947t",
+      "dateUpdated": "May 29, 2018 5:42:10 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/r",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "r",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "userId movieId rating prediction\n1      1       1      3   2.997274\n2      2       1      1   1.001506\n3      0       1      2   1.999902\n4      1       2      4   3.998144\n5      2       2      5   4.995869\n6      0       0      4   3.994600"
+          },
+          {
+            "type": "HTML",
+            "data": "\u003chr/\u003eSpark Application Id: application_1527284384465_0015\u003cbr/\u003eSpark WebUI: \u003ca href\u003d\"http://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0015/\"\u003ehttp://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0015/\u003c/a\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1527611265515_1271477489",
+      "id": "20180522-163116_87425223",
+      "dateCreated": "May 29, 2018 4:27:45 PM",
+      "dateStarted": "May 29, 2018 5:42:10 PM",
+      "dateFinished": "May 29, 2018 5:42:19 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%livy2.sparkr\n",
+      "dateUpdated": "May 29, 2018 5:42:17 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/r",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "r",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1527611265515_1271477489",
+      "id": "20180522-163308_542925743",
+      "dateCreated": "May 29, 2018 4:27:45 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Spark2 ML Examples/Spark2 ML - R",
+  "id": "2DEMJXZPC",
+  "angularObjects": {
+    "2DBF32B9V:shared_process": [],
+    "2DAKX6YNK:shared_process": [],
+    "2DCHDB8ST:shared_process": [],
+    "2DCBRJW6W:shared_process": [],
+    "2DE1DD1E9:shared_process": [],
+    "2DDRJ9Z4V:shared_process": [],
+    "2DBM1YCNA:shared_process": [],
+    "2DBG86T36:shared_process": [],
+    "2DB49WM37:shared_process": [],
+    "2DE79S694:shared_process": [],
+    "2DEDXBGB4:shared_process": [],
+    "2DCSY7TZ4:shared_process": [],
+    "2DASADA8S:shared_process": [],
+    "2DFNS3QEU:shared_process": [],
+    "2DDWF7M2H:shared_process": [],
+    "2DBQYU7QK:shared_process": [],
+    "2DAMZQ3Q7:shared_process": [],
+    "2DC23YM3T:shared_process": [],
+    "2DDXUQDU6:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

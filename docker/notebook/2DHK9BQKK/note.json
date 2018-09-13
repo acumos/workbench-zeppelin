@@ -1,0 +1,174 @@
+{
+  "paragraphs": [
+    {
+      "text": "%livy2.pyspark\n\nfrom pyspark.ml.linalg import Vectors\nfrom pyspark.ml.classification import LogisticRegression\n\n# Prepare training data from a list of (label, features) tuples.\ntraining \u003d spark.createDataFrame([(1.0, Vectors.dense([0.0, 1.1, 0.1])),(0.0, Vectors.dense([2.0, 1.0, -1.0])),(0.0, Vectors.dense([2.0, 1.3, 1.0])),(1.0, Vectors.dense([0.0, 1.2, -0.5]))], [\"label\", \"features\"])\n\n# Create a LogisticRegression instance. This instance is an Estimator.\nlr \u003d LogisticRegression(maxIter\u003d10, regParam\u003d0.01)\n# Print out the parameters, documentation, and any default values.\nprint(\"LogisticRegression parameters:\\n\" + lr.explainParams() + \"\\n\")\n\n# Learn a LogisticRegression model. This uses the parameters stored in lr.\nmodel1 \u003d lr.fit(training)\n\n# Since model1 is a Model (i.e., a transformer produced by an Estimator),\n# we can view the parameters it used during fit().\n# This prints the parameter (name: value) pairs, where names are unique IDs for this\n# LogisticRegression instance.\nprint(\"Model 1 was fit using parameters: \")\nprint(model1.extractParamMap())\n\n# We may alternatively specify parameters using a Python dictionary as a paramMap\nparamMap \u003d {lr.maxIter: 20}\nparamMap[lr.maxIter] \u003d 30  # Specify 1 Param, overwriting the original maxIter.\nparamMap.update({lr.regParam: 0.1, lr.threshold: 0.55})  # Specify multiple Params.\n\n# You can combine paramMaps, which are python dictionaries.\nparamMap2 \u003d {lr.probabilityCol: \"myProbability\"}  # Change output column name\nparamMapCombined \u003d paramMap.copy()\nparamMapCombined.update(paramMap2)\n\n# Now learn a new model using the paramMapCombined parameters.\n# paramMapCombined overrides all parameters set earlier via lr.set* methods.\nmodel2 \u003d lr.fit(training, paramMapCombined)\nprint(\"Model 2 was fit using parameters: \")\nprint(model2.extractParamMap())\n\n# Prepare test data\ntest \u003d spark.createDataFrame([(1.0, Vectors.dense([-1.0, 1.5, 1.3])),(0.0, Vectors.dense([3.0, 2.0, -0.1])),(1.0, Vectors.dense([0.0, 2.2, -1.5]))], [\"label\", \"features\"])\n\n# Make predictions on test data using the Transformer.transform() method.\n# LogisticRegression.transform will only use the \u0027features\u0027 column.\n# Note that model2.transform() outputs a \"myProbability\" column instead of the usual\n# \u0027probability\u0027 column since we renamed the lr.probabilityCol parameter previously.\nprediction \u003d model2.transform(test)\nresult \u003d prediction.select(\"features\", \"label\", \"myProbability\", \"prediction\").collect()\n\nfor row in result:\n    print(\"features\u003d%s, label\u003d%s -\u003e prob\u003d%s, prediction\u003d%s\"\n          % (row.features, row.label, row.myProbability, row.prediction))\n",
+      "user": "ei947t",
+      "dateUpdated": "May 29, 2018 5:26:47 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "LogisticRegression parameters:\naggregationDepth: suggested depth for treeAggregate (\u003e\u003d 2). (default: 2)\nelasticNetParam: the ElasticNet mixing parameter, in range [0, 1]. For alpha \u003d 0, the penalty is an L2 penalty. For alpha \u003d 1, it is an L1 penalty. (default: 0.0)\nfamily: The name of family which is a description of the label distribution to be used in the model. Supported options: auto, binomial, multinomial (default: auto)\nfeaturesCol: features column name. (default: features)\nfitIntercept: whether to fit an intercept term. (default: True)\nlabelCol: label column name. (default: label)\nmaxIter: max number of iterations (\u003e\u003d 0). (default: 100, current: 10)\npredictionCol: prediction column name. (default: prediction)\nprobabilityCol: Column name for predicted class conditional probabilities. Note: Not all models output well-calibrated probability estimates! These probabilities should be treated as confidences, not precise probabilities. (default: probability)\nrawPredictionCol: raw prediction (a.k.a. confidence) column name. (default: rawPrediction)\nregParam: regularization parameter (\u003e\u003d 0). (default: 0.0, current: 0.01)\nstandardization: whether to standardize the training features before fitting the model. (default: True)\nthreshold: Threshold in binary classification prediction, in range [0, 1]. If threshold and thresholds are both set, they must match.e.g. if threshold is p, then thresholds must be equal to [1-p, p]. (default: 0.5)\nthresholds: Thresholds in multi-class classification to adjust the probability of predicting each class. Array must have length equal to the number of classes, with values \u003e 0, excepting that at most one value may be 0. The class with largest value p/t is predicted, where p is the original probability of that class and t is the class\u0027s threshold. (undefined)\ntol: the convergence tolerance for iterative algorithms (\u003e\u003d 0). (default: 1e-06)\nweightCol: weight column name. If this is not set or empty, we treat all instance weights as 1.0. (undefined)\n\nModel 1 was fit using parameters: \n{}\nModel 2 was fit using parameters: \n{}\nfeatures\u003d[-1.0,1.5,1.3], label\u003d1.0 -\u003e prob\u003d[0.05707304171033977,0.9429269582896603], prediction\u003d1.0\nfeatures\u003d[3.0,2.0,-0.1], label\u003d0.0 -\u003e prob\u003d[0.9238522311704088,0.07614776882959128], prediction\u003d0.0\nfeatures\u003d[0.0,2.2,-1.5], label\u003d1.0 -\u003e prob\u003d[0.10972776114779119,0.8902722388522087], prediction\u003d1.0"
+          },
+          {
+            "type": "HTML",
+            "data": "\u003chr/\u003eSpark Application Id: application_1527284384465_0014\u003cbr/\u003eSpark WebUI: \u003ca href\u003d\"http://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0014/\"\u003ehttp://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0014/\u003c/a\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1527611538103_864011435",
+      "id": "20180518-162305_1806619622",
+      "dateCreated": "May 29, 2018 4:32:18 PM",
+      "dateStarted": "May 29, 2018 5:26:47 PM",
+      "dateFinished": "May 29, 2018 5:27:41 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%livy2.pyspark\n\nfrom pyspark.ml.classification import LogisticRegression\n\n# Load training data\ntraining \u003d spark.read.format(\"libsvm\").load(\"/tmp/spark2test/sample_libsvm_data.txt\")\n\nlr \u003d LogisticRegression(maxIter\u003d10, regParam\u003d0.3, elasticNetParam\u003d0.8)\n\n# Fit the model\nlrModel \u003d lr.fit(training)\n\n# Print the coefficients and intercept for logistic regression\nprint(\"Coefficients: \" + str(lrModel.coefficients))\nprint(\"Intercept: \" + str(lrModel.intercept))\n\n# We can also use the multinomial family for binary classification\nmlr \u003d LogisticRegression(maxIter\u003d10, regParam\u003d0.3, elasticNetParam\u003d0.8, family\u003d\"multinomial\")\n\n# Fit the model\nmlrModel \u003d mlr.fit(training)\n\n# Print the coefficients and intercepts for logistic regression with multinomial family\nprint(\"Multinomial coefficients: \" + str(mlrModel.coefficientMatrix))\nprint(\"Multinomial intercepts: \" + str(mlrModel.interceptVector))",
+      "user": "ei947t",
+      "dateUpdated": "May 29, 2018 5:28:18 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Coefficients: (692,[244,263,272,300,301,328,350,351,378,379,405,406,407,428,433,434,455,456,461,462,483,484,489,490,496,511,512,517,539,540,568],[-7.353983524188197e-05,-9.102738505589466e-05,-0.00019467430546904298,-0.00020300642473486668,-3.1476183314863995e-05,-6.842977602660743e-05,1.5883626898239883e-05,1.4023497091372047e-05,0.00035432047524968605,0.00011443272898171087,0.00010016712383666666,0.0006014109303795481,0.0002840248179122762,-0.00011541084736508837,0.000385996886312906,0.000635019557424107,-0.00011506412384575676,-0.00015271865864986808,0.0002804933808994214,0.0006070117471191634,-0.0002008459663247437,-0.0001421075579290126,0.0002739010341160883,0.00027730456244968115,-9.838027027269332e-05,-0.0003808522443517704,-0.00025315198008555033,0.00027747714770754307,-0.0002443619763919199,-0.0015394744687597765,-0.00023073328411331293])\nIntercept: 0.224563159613\nMultinomial coefficients: DenseMatrix([[0., 0., 0., ..., 0., 0., 0.],\n             [0., 0., 0., ..., 0., 0., 0.]])\nMultinomial intercepts: [-0.12065879445860686,0.12065879445860686]"
+          },
+          {
+            "type": "HTML",
+            "data": "\u003chr/\u003eSpark Application Id: application_1527284384465_0014\u003cbr/\u003eSpark WebUI: \u003ca href\u003d\"http://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0014/\"\u003ehttp://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0014/\u003c/a\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1527611538103_864011435",
+      "id": "20180518-171640_1886288102",
+      "dateCreated": "May 29, 2018 4:32:18 PM",
+      "dateStarted": "May 29, 2018 5:28:18 PM",
+      "dateFinished": "May 29, 2018 5:28:26 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%livy2.pyspark\n\nfrom pyspark.ml import Pipeline\nfrom pyspark.ml.classification import RandomForestClassifier\nfrom pyspark.ml.feature import IndexToString, StringIndexer, VectorIndexer\nfrom pyspark.ml.evaluation import MulticlassClassificationEvaluator\n\n# Load and parse the data file, converting it to a DataFrame.\ndata \u003d spark.read.format(\"libsvm\").load(\"/tmp/spark2test/sample_libsvm_data.txt\")\n\n# Index labels, adding metadata to the label column.\n# Fit on whole dataset to include all labels in index.\nlabelIndexer \u003d StringIndexer(inputCol\u003d\"label\", outputCol\u003d\"indexedLabel\").fit(data)\n\n# Automatically identify categorical features, and index them.\n# Set maxCategories so features with \u003e 4 distinct values are treated as continuous.\nfeatureIndexer \u003d\\\n    VectorIndexer(inputCol\u003d\"features\", outputCol\u003d\"indexedFeatures\", maxCategories\u003d4).fit(data)\n\n# Split the data into training and test sets (30% held out for testing)\n(trainingData, testData) \u003d data.randomSplit([0.7, 0.3])\n\n# Train a RandomForest model.\nrf \u003d RandomForestClassifier(labelCol\u003d\"indexedLabel\", featuresCol\u003d\"indexedFeatures\", numTrees\u003d10)\n\n# Convert indexed labels back to original labels.\nlabelConverter \u003d IndexToString(inputCol\u003d\"prediction\", outputCol\u003d\"predictedLabel\",\n                               labels\u003dlabelIndexer.labels)\n\n# Chain indexers and forest in a Pipeline\npipeline \u003d Pipeline(stages\u003d[labelIndexer, featureIndexer, rf, labelConverter])\n\n# Train model.  This also runs the indexers.\nmodel \u003d pipeline.fit(trainingData)\n\n# Make predictions.\npredictions \u003d model.transform(testData)\n\n# Select example rows to display.\npredictions.select(\"predictedLabel\", \"label\", \"features\").show(5)\n\n# Select (prediction, true label) and compute test error\nevaluator \u003d MulticlassClassificationEvaluator(\n    labelCol\u003d\"indexedLabel\", predictionCol\u003d\"prediction\", metricName\u003d\"accuracy\")\naccuracy \u003d evaluator.evaluate(predictions)\nprint(\"Test Error \u003d %g\" % (1.0 - accuracy))\n\nrfModel \u003d model.stages[2]\nprint(rfModel)  # summary only\n",
+      "user": "ei947t",
+      "dateUpdated": "May 29, 2018 5:28:36 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------+-----+--------------------+\n|predictedLabel|label|            features|\n+--------------+-----+--------------------+\n|           0.0|  0.0|(692,[95,96,97,12...|\n|           1.0|  0.0|(692,[100,101,102...|\n|           0.0|  0.0|(692,[123,124,125...|\n|           0.0|  0.0|(692,[124,125,126...|\n|           0.0|  0.0|(692,[124,125,126...|\n+--------------+-----+--------------------+\nonly showing top 5 rows\n\nTest Error \u003d 0.030303\nRandomForestClassificationModel (uid\u003drfc_47215e25f4af) with 10 trees"
+          },
+          {
+            "type": "HTML",
+            "data": "\u003chr/\u003eSpark Application Id: application_1527284384465_0014\u003cbr/\u003eSpark WebUI: \u003ca href\u003d\"http://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0014/\"\u003ehttp://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0014/\u003c/a\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1527611538104_862087691",
+      "id": "20180518-163119_1600742824",
+      "dateCreated": "May 29, 2018 4:32:18 PM",
+      "dateStarted": "May 29, 2018 5:28:36 PM",
+      "dateFinished": "May 29, 2018 5:28:47 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%livy2.pyspark\n",
+      "dateUpdated": "May 29, 2018 5:10:26 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1527611538104_862087691",
+      "id": "20180518-171901_157530251",
+      "dateCreated": "May 29, 2018 4:32:18 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Spark2 ML Examples/Spark2 ML - pyspark -  SparkML",
+  "id": "2DHK9BQKK",
+  "angularObjects": {
+    "2DBF32B9V:shared_process": [],
+    "2DAKX6YNK:shared_process": [],
+    "2DCHDB8ST:shared_process": [],
+    "2DCBRJW6W:shared_process": [],
+    "2DE1DD1E9:shared_process": [],
+    "2DDRJ9Z4V:shared_process": [],
+    "2DBM1YCNA:shared_process": [],
+    "2DBG86T36:shared_process": [],
+    "2DB49WM37:shared_process": [],
+    "2DE79S694:shared_process": [],
+    "2DEDXBGB4:shared_process": [],
+    "2DCSY7TZ4:shared_process": [],
+    "2DASADA8S:shared_process": [],
+    "2DFNS3QEU:shared_process": [],
+    "2DDWF7M2H:shared_process": [],
+    "2DBQYU7QK:shared_process": [],
+    "2DAMZQ3Q7:shared_process": [],
+    "2DC23YM3T:shared_process": [],
+    "2DDXUQDU6:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

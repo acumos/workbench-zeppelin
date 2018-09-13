@@ -1,0 +1,125 @@
+{
+  "paragraphs": [
+    {
+      "text": "%livy2.pyspark\n\nfrom pyspark.sql import SQLContext\nsqlContext \u003d SQLContext(sc)\n\ndf \u003d sqlContext.read.json(\"/tmp/zips.json\")\n\n# Displays the content of the DataFrame to stdout\n#df.show()\n\ndf.printSchema()\n\n#df.select(\"city\").show()\n\n# Select population more than 1000\ndf.filter(df[\u0027pop\u0027] \u003e 1000).show()\n",
+      "user": "ei947t",
+      "dateUpdated": "May 29, 2018 5:16:41 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- _id: string (nullable \u003d true)\n |-- city: string (nullable \u003d true)\n |-- loc: array (nullable \u003d true)\n |    |-- element: double (containsNull \u003d true)\n |-- pop: long (nullable \u003d true)\n |-- state: string (nullable \u003d true)\n\n+-----+---------------+--------------------+-----+-----+\n|  _id|           city|                 loc|  pop|state|\n+-----+---------------+--------------------+-----+-----+\n|01001|         AGAWAM|[-72.622739, 42.0...|15338|   MA|\n|01002|        CUSHMAN|[-72.51565, 42.37...|36963|   MA|\n|01005|          BARRE|[-72.108354, 42.4...| 4546|   MA|\n|01007|    BELCHERTOWN|[-72.410953, 42.2...|10579|   MA|\n|01008|      BLANDFORD|[-72.936114, 42.1...| 1240|   MA|\n|01010|      BRIMFIELD|[-72.188455, 42.1...| 3706|   MA|\n|01011|        CHESTER|[-72.988761, 42.2...| 1688|   MA|\n|01013|       CHICOPEE|[-72.607962, 42.1...|23396|   MA|\n|01020|       CHICOPEE|[-72.576142, 42.1...|31495|   MA|\n|01022|   WESTOVER AFB|[-72.558657, 42.1...| 1764|   MA|\n|01026|     CUMMINGTON|[-72.905767, 42.4...| 1484|   MA|\n|01027|      MOUNT TOM|[-72.679921, 42.2...|16864|   MA|\n|01028|EAST LONGMEADOW|[-72.505565, 42.0...|13367|   MA|\n|01030|  FEEDING HILLS|[-72.675077, 42.0...|11985|   MA|\n|01031|   GILBERTVILLE|[-72.198585, 42.3...| 2385|   MA|\n|01033|         GRANBY|[-72.520001, 42.2...| 5526|   MA|\n|01034|        TOLLAND|[-72.908793, 42.0...| 1652|   MA|\n|01035|         HADLEY|[-72.571499, 42.3...| 4231|   MA|\n|01036|        HAMPDEN|[-72.431823, 42.0...| 4709|   MA|\n|01038|       HATFIELD|[-72.616735, 42.3...| 3184|   MA|\n+-----+---------------+--------------------+-----+-----+\nonly showing top 20 rows"
+          },
+          {
+            "type": "HTML",
+            "data": "\u003chr/\u003eSpark Application Id: application_1527284384465_0011\u003cbr/\u003eSpark WebUI: \u003ca href\u003d\"http://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0011/\"\u003ehttp://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0011/\u003c/a\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1527611109298_-1427164976",
+      "id": "20180501-183934_1169815495",
+      "dateCreated": "May 29, 2018 4:25:09 PM",
+      "dateStarted": "May 29, 2018 5:16:41 PM",
+      "dateFinished": "May 29, 2018 5:17:33 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%livy.pyspark\nfrom pyspark.sql import SQLContext\nsqlContext \u003d SQLContext(sc)\n\ndf \u003d sqlContext.read.json(\"/tmp/zips.json\")\n\n# Displays the content of the DataFrame to stdout\n#df.show()\n\ndf.printSchema()\n\n#df.select(\"city\").show()\n\n# Select population more than 1000\ndf.filter(df[\u0027pop\u0027] \u003e 1000).show()\n\n",
+      "user": "ei947t",
+      "dateUpdated": "May 29, 2018 5:23:17 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- _id: string (nullable \u003d true)\n |-- city: string (nullable \u003d true)\n |-- loc: array (nullable \u003d true)\n |    |-- element: double (containsNull \u003d true)\n |-- pop: long (nullable \u003d true)\n |-- state: string (nullable \u003d true)\n\n+-----+---------------+--------------------+-----+-----+\n|  _id|           city|                 loc|  pop|state|\n+-----+---------------+--------------------+-----+-----+\n|01001|         AGAWAM|[-72.622739, 42.0...|15338|   MA|\n|01002|        CUSHMAN|[-72.51565, 42.37...|36963|   MA|\n|01005|          BARRE|[-72.108354, 42.4...| 4546|   MA|\n|01007|    BELCHERTOWN|[-72.410953, 42.2...|10579|   MA|\n|01008|      BLANDFORD|[-72.936114, 42.1...| 1240|   MA|\n|01010|      BRIMFIELD|[-72.188455, 42.1...| 3706|   MA|\n|01011|        CHESTER|[-72.988761, 42.2...| 1688|   MA|\n|01013|       CHICOPEE|[-72.607962, 42.1...|23396|   MA|\n|01020|       CHICOPEE|[-72.576142, 42.1...|31495|   MA|\n|01022|   WESTOVER AFB|[-72.558657, 42.1...| 1764|   MA|\n|01026|     CUMMINGTON|[-72.905767, 42.4...| 1484|   MA|\n|01027|      MOUNT TOM|[-72.679921, 42.2...|16864|   MA|\n|01028|EAST LONGMEADOW|[-72.505565, 42.0...|13367|   MA|\n|01030|  FEEDING HILLS|[-72.675077, 42.0...|11985|   MA|\n|01031|   GILBERTVILLE|[-72.198585, 42.3...| 2385|   MA|\n|01033|         GRANBY|[-72.520001, 42.2...| 5526|   MA|\n|01034|        TOLLAND|[-72.908793, 42.0...| 1652|   MA|\n|01035|         HADLEY|[-72.571499, 42.3...| 4231|   MA|\n|01036|        HAMPDEN|[-72.431823, 42.0...| 4709|   MA|\n|01038|       HATFIELD|[-72.616735, 42.3...| 3184|   MA|\n+-----+---------------+--------------------+-----+-----+\nonly showing top 20 rows"
+          },
+          {
+            "type": "HTML",
+            "data": "\u003chr/\u003eSpark Application Id: application_1527284384465_0013\u003cbr/\u003eSpark WebUI: \u003ca href\u003d\"http://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0013/\"\u003ehttp://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0013/\u003c/a\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1527611109299_-1427549725",
+      "id": "20180501-184057_324300109",
+      "dateCreated": "May 29, 2018 4:25:09 PM",
+      "dateStarted": "May 29, 2018 5:23:17 PM",
+      "dateFinished": "May 29, 2018 5:24:00 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%livy.pyspark\n",
+      "user": "ei947t",
+      "dateUpdated": "May 29, 2018 5:20:06 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1527614406859_1049754256",
+      "id": "20180529-172006_1542799893",
+      "dateCreated": "May 29, 2018 5:20:06 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Spark Dataframe Examples/pyspark",
+  "id": "2DF3CZMH4",
+  "angularObjects": {
+    "2DBF32B9V:shared_process": [],
+    "2DAKX6YNK:shared_process": [],
+    "2DCHDB8ST:shared_process": [],
+    "2DCBRJW6W:shared_process": [],
+    "2DE1DD1E9:shared_process": [],
+    "2DDRJ9Z4V:shared_process": [],
+    "2DBM1YCNA:shared_process": [],
+    "2DBG86T36:shared_process": [],
+    "2DB49WM37:shared_process": [],
+    "2DE79S694:shared_process": [],
+    "2DEDXBGB4:shared_process": [],
+    "2DCSY7TZ4:shared_process": [],
+    "2DASADA8S:shared_process": [],
+    "2DFNS3QEU:shared_process": [],
+    "2DDWF7M2H:shared_process": [],
+    "2DBQYU7QK:shared_process": [],
+    "2DAMZQ3Q7:shared_process": [],
+    "2DC23YM3T:shared_process": [],
+    "2DDXUQDU6:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}
