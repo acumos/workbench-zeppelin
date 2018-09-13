@@ -1,0 +1,92 @@
+{
+  "paragraphs": [
+    {
+      "text": "%sh\n# Please follow below steps copy keytab from remote servers, by changing the ONLY parameters that are specified in step3.\n\ncd /opt/zeppelin/confCMLP\nls -ltr\n\n# STEP 1 - login to your remote server where keytab exists.\n# STEP 2 - Gennerate a RSA keypair\n# STEP 3 - Put private key under folder /opt/zeppelin/conf/YOUR_PRIVATE_KEY.private\n# STEP 4 - copy and paste public key to file /YOUR_HOME_FOLDER/.ssh/authorized_keys on server where keytab exists\n# STEP 5 - run below comand by updating parameters:\n# YOUR_UID, your user id on remote server\n# REMOTE_SERVER, the remote server name where your keytab exists, for example zlp12345.vci.att.com\n# YOUR_KEYTAB_FILE_PATH, your keytab file with full path, for example /home/ab1234/ab1234.keytab\n# YOUR_KEYTAB_FILE_NAME, your keytab file name wihtout path, for example ab1234.keytab\n\nscp -o StrictHostKeyChecking\u003dno -i /opt/zeppelin/conf/YOUR_PRIVATE_KEY.private YOUR_UID@REMOTE_SERVER:YOUR_KEYTAB_FILE_PATH /opt/zeppelin/conf/YOUR_KEYTAB_FILE_NAME",
+      "user": "anonymous",
+      "dateUpdated": "2018-09-19 18:34:14.326",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {
+          "YOUR_UID": ""
+        },
+        "forms": {
+          "YOUR_UID": {
+            "type": "TextBox",
+            "name": "YOUR_UID",
+            "defaultValue": "",
+            "hidden": false
+          }
+        }
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "total 128\n-rwxr-xr-x 54  501 root 13933 Sep 18  2017 zeppelin-site.xml.template\n-rw-r--r-- 54  501 root  6385 Sep 18  2017 zeppelin-env.sh.template\n-rw-r--r-- 54  501 root  5312 Sep 18  2017 zeppelin-env.cmd.template\n-rw-r--r-- 54  501 root  3847 Sep 18  2017 shiro.ini.template\n-rw-r--r-- 54  501 root  2729 Sep 18  2017 interpreter-list\n-rw-r--r-- 54  501 root  1326 Sep 18  2017 configuration.xsl\n-rwxrwxr-x 52 root root 19776 Mar 14 21:42 zeppelin-site.xml\n-rwxr----- 49 root root  4208 Apr 26 14:19 shiro.ini\n-rw-r--r--  2 root root  3709 Apr 26 19:45 krb5.conf\n-r--------  3 root root  1704 Jun  7 20:35 tmpusr_rsa.private\n-rw-r-----  5 root root  1116 Jun  7 20:35 log4j.properties\n-rw-r-----  8 root root 40437 Jun  7 21:34 interpreter.json\n-rw-r-----  7 root root  1756 Jun  7 21:38 notebook-authorization.json\nWarning: Permanently added \u0027zlp25100.vci.att.com,130.6.133.194\u0027 (ECDSA) to the list of known hosts.\r\n   _________________________________________________________________\n\n    This system is restricted to AT\u0026T authorized users for business\n    purposes.  Unauthorized access is a violation of the law. This\n    service may be monitored for administrative and security reasons.\n    By proceeding, you consent to this monitoring.\n   _________________________________________________________________\n\n   [ THIS SYSTEM IS CURRENTLY BEING ADMINISTERED BY LINUX SUPPORT ]\n\nFOR LOGIN ACCESS, GO HERE: http://uam.it.att.com\n\nFOR SA REQUESTS/WORK ORDERS, GO TO IEDS \nhttps://intra.att.com/ieds/pages/Search.cfm\nAND SEARCH FOR SYSTEM.  GO TO PEOPLE TAB TO FIND APPROPRIATE WORK GROUP \nAND SUPPORT TEAM AND OPEN A TICKET\n\nTO REPORT A SEV 1 OUTAGE CALL THE ITO SERVICE DESK at 877-448-6767\n\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1537380970497_-406422249",
+      "id": "20180604-201015_1573896847",
+      "dateCreated": "2018-09-19 18:16:10.497",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-09-19 18:16:10.499",
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1537380970498_1366117047",
+      "id": "20180604-203553_1752607414",
+      "dateCreated": "2018-09-19 18:16:10.498",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Kerberos_setup_Templates/Setup_Keytab_SCP",
+  "id": "2DSP25DRM",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "livy2:shared_process": [],
+    "sh:shared_process": [],
+    "livy:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
