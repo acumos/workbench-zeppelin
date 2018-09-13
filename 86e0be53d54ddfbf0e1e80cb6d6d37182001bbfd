@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "0f65820e_7b228129",
+        "filename": ".gitreview",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 225
+      },
+      "writtenOn": "2018-09-13T20:36:06Z",
+      "side": 1,
+      "message": "remove extra line",
+      "revId": "86e0be53d54ddfbf0e1e80cb6d6d37182001bbfd",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53c2a401_8d5594a8",
+        "filename": "LICENSE.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 225
+      },
+      "writtenOn": "2018-09-13T20:36:06Z",
+      "side": 1,
+      "message": "AT\u0026Tunder -\u003e put space AT\u0026T under",
+      "revId": "86e0be53d54ddfbf0e1e80cb6d6d37182001bbfd",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "acd74877_8d0762c5",
         "filename": "docker/Dockerfile",
         "patchSetId": 3
@@ -42,6 +76,57 @@
         "endLine": 19,
         "endChar": 44
       },
+      "revId": "86e0be53d54ddfbf0e1e80cb6d6d37182001bbfd",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60c31891_d0d16360",
+        "filename": "docker/datasource/.idea/workspace.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 225
+      },
+      "writtenOn": "2018-09-13T20:36:06Z",
+      "side": 1,
+      "message": "add .idea folder to gitignore file",
+      "revId": "86e0be53d54ddfbf0e1e80cb6d6d37182001bbfd",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abfb691b_9621899c",
+        "filename": "docker/zeppelin_opensource_base/Dockerfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 225
+      },
+      "writtenOn": "2018-09-13T20:36:06Z",
+      "side": 1,
+      "message": "remove proxy",
+      "revId": "86e0be53d54ddfbf0e1e80cb6d6d37182001bbfd",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee998ec8_989e9bc3",
+        "filename": "docker/zeppelin_opensource_base/Dockerfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 225
+      },
+      "writtenOn": "2018-09-13T20:36:06Z",
+      "side": 1,
+      "message": "remove proxy",
       "revId": "86e0be53d54ddfbf0e1e80cb6d6d37182001bbfd",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
