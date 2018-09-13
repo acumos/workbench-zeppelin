@@ -1,0 +1,103 @@
+{
+  "paragraphs": [
+    {
+      "text": "%sh\n\n# To create kerberos configuration file, replace below quoted content with your krb5.conf file content\n# Please note, there is a symbolic link between /etc/krb5.conf and /opt/zeppelin/conf/krb5.conf. So need to keep krb5.conf location as /opt/zeppelin/conf/krb5.conf\n\necho \"\nREPLACE_WITH_YOUR_krb5.conf_CONTENT\n\" \u003e /opt/zeppelin/conf/krb5.conf\n",
+      "user": "lf6847",
+      "dateUpdated": "2018-07-13 20:19:46.666",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sh",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1528401811824_-1751941970",
+      "id": "20180604-195745_726676875",
+      "dateCreated": "2018-06-07 20:03:31.000",
+      "dateStarted": "2018-06-07 20:51:37.000",
+      "dateFinished": "2018-06-07 20:51:39.000",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n\n# Validate kr5.conf content is copied successfully.\n\ncat /opt/zeppelin/conf/krb5.conf\n",
+      "user": "lf6847",
+      "dateUpdated": "2018-07-13 20:20:14.980",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sh",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[libdefaults]\n\tdefault_realm \u003d ATHENA.MIT.EDU\n\n# The following krb5.conf variables are only for MIT Kerberos.\n\tkrb4_config \u003d /etc/krb.conf\n\tkrb4_realms \u003d /etc/krb.realms\n\tkdc_timesync \u003d 1\n\tccache_type \u003d 4\n\tforwardable \u003d true\n\tproxiable \u003d true\n\n# The following encryption type specification will be used by MIT Kerberos\n# if uncommented.  In general, the defaults in the MIT Kerberos code are\n# correct and overriding these specifications only serves to disable new\n# encryption types as they are added, creating interoperability problems.\n#\n# Thie only time when you might need to uncomment these lines and change\n# the enctypes is if you have local software that will break on ticket\n# caches containing ticket encryption types it doesn\u0027t know about (such as\n# old versions of Sun Java).\n\n#\tdefault_tgs_enctypes \u003d des3-hmac-sha1\n#\tdefault_tkt_enctypes \u003d des3-hmac-sha1\n#\tpermitted_enctypes \u003d des3-hmac-sha1\n\n# The following libdefaults parameters are only for Heimdal Kerberos.\n\tv4_instance_resolve \u003d false\n\tv4_name_convert \u003d {\n\t\thost \u003d {\n\t\t\trcmd \u003d host\n\t\t\tftp \u003d ftp\n\t\t}\n\t\tplain \u003d {\n\t\t\tsomething \u003d something-else\n\t\t}\n\t}\n\tfcc-mit-ticketflags \u003d true\n\n[realms]\n\tATHENA.MIT.EDU \u003d {\n\t\tkdc \u003d kerberos.mit.edu:88\n\t\tkdc \u003d kerberos-1.mit.edu:88\n\t\tkdc \u003d kerberos-2.mit.edu:88\n\t\tadmin_server \u003d kerberos.mit.edu\n\t\tdefault_domain \u003d mit.edu\n\t}\n\tMEDIA-LAB.MIT.EDU \u003d {\n\t\tkdc \u003d kerberos.media.mit.edu\n\t\tadmin_server \u003d kerberos.media.mit.edu\n\t}\n\tZONE.MIT.EDU \u003d {\n\t\tkdc \u003d casio.mit.edu\n\t\tkdc \u003d seiko.mit.edu\n\t\tadmin_server \u003d casio.mit.edu\n\t}\n\tMOOF.MIT.EDU \u003d {\n\t\tkdc \u003d three-headed-dogcow.mit.edu:88\n\t\tkdc \u003d three-headed-dogcow-1.mit.edu:88\n\t\tadmin_server \u003d three-headed-dogcow.mit.edu\n\t}\n\tCSAIL.MIT.EDU \u003d {\n\t\tkdc \u003d kerberos-1.csail.mit.edu\n\t\tkdc \u003d kerberos-2.csail.mit.edu\n\t\tadmin_server \u003d kerberos.csail.mit.edu\n\t\tdefault_domain \u003d csail.mit.edu\n\t\tkrb524_server \u003d krb524.csail.mit.edu\n\t}\n\tIHTFP.ORG \u003d {\n\t\tkdc \u003d kerberos.ihtfp.org\n\t\tadmin_server \u003d kerberos.ihtfp.org\n\t}\n\tGNU.ORG \u003d {\n\t\tkdc \u003d kerberos.gnu.org\n\t\tkdc \u003d kerberos-2.gnu.org\n\t\tkdc \u003d kerberos-3.gnu.org\n\t\tadmin_server \u003d kerberos.gnu.org\n\t}\n\t1TS.ORG \u003d {\n\t\tkdc \u003d kerberos.1ts.org\n\t\tadmin_server \u003d kerberos.1ts.org\n\t}\n\tGRATUITOUS.ORG \u003d {\n\t\tkdc \u003d kerberos.gratuitous.org\n\t\tadmin_server \u003d kerberos.gratuitous.org\n\t}\n\tDOOMCOM.ORG \u003d {\n\t\tkdc \u003d kerberos.doomcom.org\n\t\tadmin_server \u003d kerberos.doomcom.org\n\t}\n\tANDREW.CMU.EDU \u003d {\n\t\tkdc \u003d kerberos.andrew.cmu.edu\n\t\tkdc \u003d kerberos2.andrew.cmu.edu\n\t\tkdc \u003d kerberos3.andrew.cmu.edu\n\t\tadmin_server \u003d kerberos.andrew.cmu.edu\n\t\tdefault_domain \u003d andrew.cmu.edu\n\t}\n\tCS.CMU.EDU \u003d {\n\t\tkdc \u003d kerberos.cs.cmu.edu\n\t\tkdc \u003d kerberos-2.srv.cs.cmu.edu\n\t\tadmin_server \u003d kerberos.cs.cmu.edu\n\t}\n\tDEMENTIA.ORG \u003d {\n\t\tkdc \u003d kerberos.dementix.org\n\t\tkdc \u003d kerberos2.dementix.org\n\t\tadmin_server \u003d kerberos.dementix.org\n\t}\n\tstanford.edu \u003d {\n\t\tkdc \u003d krb5auth1.stanford.edu\n\t\tkdc \u003d krb5auth2.stanford.edu\n\t\tkdc \u003d krb5auth3.stanford.edu\n\t\tmaster_kdc \u003d krb5auth1.stanford.edu\n\t\tadmin_server \u003d krb5-admin.stanford.edu\n\t\tdefault_domain \u003d stanford.edu\n\t}\n        UTORONTO.CA \u003d {\n                kdc \u003d kerberos1.utoronto.ca\n                kdc \u003d kerberos2.utoronto.ca\n                kdc \u003d kerberos3.utoronto.ca\n                admin_server \u003d kerberos1.utoronto.ca\n                default_domain \u003d utoronto.ca\n\t}\n\n[domain_realm]\n\t.mit.edu \u003d ATHENA.MIT.EDU\n\tmit.edu \u003d ATHENA.MIT.EDU\n\t.media.mit.edu \u003d MEDIA-LAB.MIT.EDU\n\tmedia.mit.edu \u003d MEDIA-LAB.MIT.EDU\n\t.csail.mit.edu \u003d CSAIL.MIT.EDU\n\tcsail.mit.edu \u003d CSAIL.MIT.EDU\n\t.whoi.edu \u003d ATHENA.MIT.EDU\n\twhoi.edu \u003d ATHENA.MIT.EDU\n\t.stanford.edu \u003d stanford.edu\n\t.slac.stanford.edu \u003d SLAC.STANFORD.EDU\n        .toronto.edu \u003d UTORONTO.CA\n        .utoronto.ca \u003d UTORONTO.CA\n\n[login]\n\tkrb4_convert \u003d true\n\tkrb4_get_tickets \u003d false\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1528401811825_-1752326718",
+      "id": "20180604-200044_901590225",
+      "dateCreated": "2018-06-07 20:03:31.000",
+      "dateStarted": "2018-06-07 22:09:44.000",
+      "dateFinished": "2018-06-07 22:09:44.000",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n",
+      "user": "lf6847",
+      "dateUpdated": "2018-06-07 20:04:46.000",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1528401886646_-1484618105",
+      "id": "20180607-200446_1267990000",
+      "dateCreated": "2018-06-07 20:04:46.000",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Kerberos_setup_Templates/Setup_krb5.conf",
+  "id": "2DETK434J",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "sh:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

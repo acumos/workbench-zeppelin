@@ -1,0 +1,94 @@
+{
+  "paragraphs": [
+    {
+      "text": "%livy2.sparkr\n\ndf \u003c- read.df(\"/tmp/zips.json\", \"json\")\n#head(df)\nprintSchema(df)\n\n# Displays the content of the DataFrame\n# str(df)\n\n# You can also pass in column name as strings\n#head(select(df, \"pop\"))\n\n# Select population more than 1000\nhead(filter(df, df$pop \u003e 1000))",
+      "user": "ei947t",
+      "dateUpdated": "May 29, 2018 5:15:19 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/r",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "r",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- _id: string (nullable \u003d true)\n |-- city: string (nullable \u003d true)\n |-- loc: array (nullable \u003d true)\n |    |-- element: double (containsNull \u003d true)\n |-- pop: long (nullable \u003d true)\n |-- state: string (nullable \u003d true)\n    _id        city                 loc   pop state\n1 01001      AGAWAM -72.62274, 42.07021 15338    MA\n2 01002     CUSHMAN -72.51565, 42.37702 36963    MA\n3 01005       BARRE -72.10835, 42.40970  4546    MA\n4 01007 BELCHERTOWN -72.41095, 42.27510 10579    MA\n5 01008   BLANDFORD -72.93611, 42.18295  1240    MA\n6 01010   BRIMFIELD -72.18846, 42.11654  3706    MA"
+          },
+          {
+            "type": "HTML",
+            "data": "\u003chr/\u003eSpark Application Id: application_1527284384465_0010\u003cbr/\u003eSpark WebUI: \u003ca href\u003d\"http://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0010/\"\u003ehttp://zlp25102.vci.att.com:8088/proxy/application_1527284384465_0010/\u003c/a\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1527611159277_1217827182",
+      "id": "20180522-211215_1594100408",
+      "dateCreated": "May 29, 2018 4:25:59 PM",
+      "dateStarted": "May 29, 2018 5:15:19 PM",
+      "dateFinished": "May 29, 2018 5:16:01 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%livy.sparkr\n",
+      "dateUpdated": "May 29, 2018 4:25:59 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/r",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "r",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1527611159277_1217827182",
+      "id": "20180522-211455_650123788",
+      "dateCreated": "May 29, 2018 4:25:59 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Spark Dataframe Examples/sparkR",
+  "id": "2DG4B5XA9",
+  "angularObjects": {
+    "2DBF32B9V:shared_process": [],
+    "2DAKX6YNK:shared_process": [],
+    "2DCHDB8ST:shared_process": [],
+    "2DCBRJW6W:shared_process": [],
+    "2DE1DD1E9:shared_process": [],
+    "2DDRJ9Z4V:shared_process": [],
+    "2DBM1YCNA:shared_process": [],
+    "2DBG86T36:shared_process": [],
+    "2DB49WM37:shared_process": [],
+    "2DE79S694:shared_process": [],
+    "2DEDXBGB4:shared_process": [],
+    "2DCSY7TZ4:shared_process": [],
+    "2DASADA8S:shared_process": [],
+    "2DFNS3QEU:shared_process": [],
+    "2DDWF7M2H:shared_process": [],
+    "2DBQYU7QK:shared_process": [],
+    "2DAMZQ3Q7:shared_process": [],
+    "2DC23YM3T:shared_process": [],
+    "2DDXUQDU6:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

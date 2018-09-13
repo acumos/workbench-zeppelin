@@ -1,0 +1,112 @@
+{
+  "paragraphs": [
+    {
+      "text": "%sh\n\n# To access HDFS, needs to get a valid Kerberos ticket first. \n# Replace below parameters:\n# YOUR_KEYTAB_FILENAME, your kerberos keytab filename, for example ab1234.keytab\n# YOUR_KERBEROS_PRINCIPAL, kerberos principal contained in keytab file, for example ab1234@Hadoop.att.com\n\nkinit -kt /opt/zeppelin/conf/YOUR_KEYTAB_FILENAME YOUR_KERBEROS_PRINCIPAL\n\nklist",
+      "user": "lf6847",
+      "dateUpdated": "2018-07-13 20:23:29.123",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sh",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "editOnDblClick": false,
+          "language": "sh",
+          "completionSupport": false
+        },
+        "tableHide": true,
+        "fontSize": 9.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Ticket cache: FILE:/tmp/krb5cc_0\nDefault principal: lf6847@PROD.HADOOP.CMLP.ATT.COM\n\nValid starting       Expires              Service principal\n06/07/2018 21:13:10  06/08/2018 21:13:10  krbtgt/PROD.HADOOP.CMLP.ATT.COM@PROD.HADOOP.CMLP.ATT.COM\n\trenew until 06/07/2018 21:13:10\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1528405926321_1314917981",
+      "id": "20180416-163216_967217055",
+      "dateCreated": "2018-06-07 21:12:06.000",
+      "dateStarted": "2018-06-07 21:13:10.000",
+      "dateFinished": "2018-06-07 21:13:10.000",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%file\n\nls -ltr /tmp  #validate this command can access HDFS /tmp folder\n",
+      "user": "lf6847",
+      "dateUpdated": "2018-06-07 21:20:10.000",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/text",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "drwxr-xr-x\t-\t m09286\thdfs\t0\t2017-07-24 20:53GMT\t/tmp/.sparkStaging\n-rw-r--r--\t3\t am746c\thdfs\t34267774\t2018-03-22 21:30GMT\t/tmp/2.csv\n-rwx------\t3\t m09286\thdfs\t1149920\t2017-07-18 22:58GMT\t/tmp/CNW.csv\ndrwxr-xr-x\t-\t am746c\thdfs\t0\t2018-05-31 19:43GMT\t/tmp/EGChurn\n-rwxr-xr-x\t3\t admin\thdfs\t282\t2017-07-12 15:25GMT\t/tmp/Golf.csv\ndrwxr-xr-x\t-\t ei947t\thdfs\t0\t2018-05-21 21:29GMT\t/tmp/RtmpFR0oMA\n-rw-r--r--\t3\t kellymantione\thdfs\t803629733\t2018-03-21 16:33GMT\t/tmp/Streams_Movers_Model_Input_Commas.csv\ndrwxr-xr-x\t-\t am746c\thdfs\t0\t2018-05-31 22:20GMT\t/tmp/XGBoost_test\n-rwxrwxrwx\t3\t m09286\thdfs\t256\t2018-05-10 22:26GMT\t/tmp/abhi.py\n-rwxrwxrwx\t3\t m09286\thdfs\t256\t2018-05-10 22:32GMT\t/tmp/abhipavel.py\n-rwxrwxrwx\t3\t m09286\thdfs\t256\t2018-05-10 23:10GMT\t/tmp/adi.py\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-14 17:29GMT\t/tmp/adi0001livytestcounts-newtest1000.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-14 18:22GMT\t/tmp/adi0001livytestcounts-newtest10001.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-14 17:28GMT\t/tmp/adi000livytestcounts-newtest1000.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-11 23:03GMT\t/tmp/adi_1_livytestcounts-newtest989.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-14 22:32GMT\t/tmp/adi_test_spark_livy_0.207597873365.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-23 19:01GMT\t/tmp/adi_test_spark_livy_0.274618558787.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-14 22:31GMT\t/tmp/adi_test_spark_livy_0.293152747989.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-24 22:32GMT\t/tmp/adi_test_spark_livy_0.348865943518.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-24 20:36GMT\t/tmp/adi_test_spark_livy_0.430935972154.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-24 05:15GMT\t/tmp/adi_test_spark_livy_0.479661888442.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-24 20:35GMT\t/tmp/adi_test_spark_livy_0.505106081531.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-24 20:36GMT\t/tmp/adi_test_spark_livy_0.517444602926.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-25 23:17GMT\t/tmp/adi_test_spark_livy_0.557007271686.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-14 22:33GMT\t/tmp/adi_test_spark_livy_0.586225659679.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-23 17:12GMT\t/tmp/adi_test_spark_livy_0.622972948714.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-14 22:32GMT\t/tmp/adi_test_spark_livy_0.633895929779.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-23 17:12GMT\t/tmp/adi_test_spark_livy_0.698334976051.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-14 22:33GMT\t/tmp/adi_test_spark_livy_0.729877113869.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-14 22:32GMT\t/tmp/adi_test_spark_livy_0.739652295328.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-24 15:25GMT\t/tmp/adi_test_spark_livy_0.963142983439.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-24 05:15GMT\t/tmp/adi_test_spark_livy_0.981191694395.txt\n-rwx------\t3\t m09286\thdfs\t9825\t2017-07-18 22:58GMT\t/tmp/aiml_trainingdata_v3.csv\ndrwx------\t-\t ambariqa\thdfs\t0\t2018-02-20 17:48GMT\t/tmp/ambariqa\n-rw-r--r--\t3\t am746c\thdfs\t353710\t2018-03-26 08:02GMT\t/tmp/churndata.csv\n-rw-r--r--\t3\t hdfs\thdfs\t14423\t2018-04-20 21:55GMT\t/tmp/dockerouput.log\n-rw-r--r--\t3\t am746c\thdfs\t63110408\t2018-05-31 19:35GMT\t/tmp/elasticity_X_test_60.csv\n-rw-r--r--\t3\t am746c\thdfs\t147236269\t2018-05-31 19:36GMT\t/tmp/elasticity_X_train_60.csv\n-rwxr-xr-x\t3\t am746c\thdfs\t1209864\t2018-06-04 05:11GMT\t/tmp/elasticity_data_trainMar18c_60_model_XG\n-rw-r--r--\t3\t am746c\thdfs\t513027\t2018-05-31 17:39GMT\t/tmp/elasticity_data_trainMar18c_60_model_XG.zip\n-rw-r--r--\t3\t am746c\thdfs\t599452\t2018-05-31 19:36GMT\t/tmp/elasticity_y_test_60.csv\n-rw-r--r--\t3\t am746c\thdfs\t1398717\t2018-05-31 19:36GMT\t/tmp/elasticity_y_train_60.csv\n-rwxrwxrwx\t3\t m09286\thdfs\t256\t2018-05-12 01:29GMT\t/tmp/emp.py\ndrwxr-xr-x\t-\t hdfs\thdfs\t0\t2017-05-03 02:34GMT\t/tmp/entity-file-history\ndrwxr-xr-x\t-\t hdfs\thdfs\t0\t2018-03-21 17:42GMT\t/tmp/feng\ndrwx-wx-wx\t-\t ambariqa\thdfs\t0\t2018-05-31 17:33GMT\t/tmp/hive\n-rw-r--r--\t3\t hdfs\thdfs\t20316\t2018-04-24 16:33GMT\t/tmp/hive-site.xml\ndrwx------\t-\t hive\thdfs\t0\t2018-04-25 21:56GMT\t/tmp/hiveonly\n-rwxr-xr-x\t3\t hdfs\thdfs\t64156\t2018-02-20 17:47GMT\t/tmp/id0682bf85_date472018\n-rwxr-xr-x\t3\t hdfs\thdfs\t64300\t2018-02-20 20:16GMT\t/tmp/id0682c185_date162018\n-rwxr-xr-x\t3\t ambariqa\thdfs\t64300\t2018-02-20 17:49GMT\t/tmp/idtest.ambariqa.1519148975.18.in\n-rwxr-xr-x\t3\t ambariqa\thdfs\t955\t2018-02-20 17:49GMT\t/tmp/idtest.ambariqa.1519148975.18.pig\n-rwxr-xr-x\t3\t ambariqa\thdfs\t64300\t2018-02-20 20:22GMT\t/tmp/idtest.ambariqa.1519158171.25.in\n-rwxr-xr-x\t3\t ambariqa\thdfs\t955\t2018-02-20 20:22GMT\t/tmp/idtest.ambariqa.1519158171.25.pig\n-rwxr-xr-x\t3\t yarn\thdfs\t65\t2018-04-20 17:48GMT\t/tmp/livycsvtest.txt\n-rwxr-xr-x\t3\t hdfs\thdfs\t44\t2018-04-20 16:56GMT\t/tmp/livytest.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-04-25 21:04GMT\t/tmp/livytestcounts-goodone.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-04-26 14:07GMT\t/tmp/livytestcounts-goodone2.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-04-20 22:38GMT\t/tmp/livytestcounts-new.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-04-26 15:50GMT\t/tmp/livytestcounts-new1.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-04-25 20:12GMT\t/tmp/livytestcounts-new10.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-10 16:47GMT\t/tmp/livytestcounts-new100.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-04-24 16:52GMT\t/tmp/livytestcounts-new2.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-04-24 17:23GMT\t/tmp/livytestcounts-new3.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-04-24 17:24GMT\t/tmp/livytestcounts-new4.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-04-24 17:29GMT\t/tmp/livytestcounts-new5.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-01 18:32GMT\t/tmp/livytestcounts-newfeng.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-01 20:12GMT\t/tmp/livytestcounts-newfeng22.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-01 20:22GMT\t/tmp/livytestcounts-newfeng23.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-01 20:23GMT\t/tmp/livytestcounts-newfeng25.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-01 20:24GMT\t/tmp/livytestcounts-newfeng27.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-01 21:27GMT\t/tmp/livytestcounts-newfeng999.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-04-26 15:26GMT\t/tmp/livytestcounts-newok.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-10 16:47GMT\t/tmp/livytestcounts-newtest1.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-11 22:55GMT\t/tmp/livytestcounts-newtest1000.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-11 19:40GMT\t/tmp/livytestcounts-newtest989.txt\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-04-20 16:58GMT\t/tmp/livytestcounts.txt\ndrwxr-xr-x\t-\t m09286\thdfs\t0\t2017-07-05 20:52GMT\t/tmp/m09286\n-rw-r--r--\t3\t am746c\thdfs\t793518\t2018-05-14 21:43GMT\t/tmp/oemperf_poc_20180512.zip\n-rw-r--r--\t3\t m09286\thdfs\t5\t2017-08-01 04:33GMT\t/tmp/out1.txt\n-rw-r--r--\t3\t m09286\thdfs\t20\t2017-08-03 08:56GMT\t/tmp/outText0.txt\n-rw-r--r--\t3\t m09286\thdfs\t20\t2017-08-03 08:56GMT\t/tmp/outText1.txt\n-rw-r--r--\t3\t m09286\thdfs\t20\t2017-08-03 08:56GMT\t/tmp/outText2.txt\n-rw-r--r--\t3\t m09286\thdfs\t20\t2017-08-03 08:56GMT\t/tmp/outText3.txt\n-rw-r--r--\t3\t m09286\thdfs\t20\t2017-08-03 08:56GMT\t/tmp/outText4.txt\n-rw-r--r--\t3\t m09286\thdfs\t20\t2017-08-03 08:56GMT\t/tmp/outText5.txt\n-rw-r--r--\t3\t m09286\thdfs\t20\t2017-08-03 08:56GMT\t/tmp/outText6.txt\n-rw-r--r--\t3\t m09286\thdfs\t20\t2017-08-03 08:56GMT\t/tmp/outText7.txt\n-rw-r--r--\t3\t m09286\thdfs\t20\t2017-08-03 08:56GMT\t/tmp/outText8.txt\n-rw-r--r--\t3\t m09286\thdfs\t20\t2017-08-03 08:56GMT\t/tmp/outText9.txt\n-rw-r--r--\t3\t m09286\thdfs\t0\t2017-08-01 11:37GMT\t/tmp/pathdfs\n-rwxr-xr-x\t3\t livy\thdfs\t1388\t2018-04-23 01:43GMT\t/tmp/pi.py\n-rw-r--r--\t3\t livy\thdfs\t1214\t2018-04-23 14:52GMT\t/tmp/piupdated_functionOnly.py\n-rwxrwxrwx\t3\t m09286\thdfs\t0\t2018-05-24 16:54GMT\t/tmp/pkupload.py\n-rw-r--r--\t3\t am746c\thdfs\t3785399\t2018-05-30 21:36GMT\t/tmp/sample_elasticity_data_scoreMar18c_60_orc_features.parquet_1\n-rw-r--r--\t3\t am746c\thdfs\t0\t2018-05-31 14:24GMT\t/tmp/sample_elasticity_data_scoreMar18c_60_orc_features.parquet_2\n-rwxrwxrwx\t3\t m09286\thdfs\t540\t2018-03-09 03:57GMT\t/tmp/samplecsv1.csv\n-rw-r--r--\t3\t am746c\thdfs\t70346612\t2018-05-30 16:48GMT\t/tmp/scalablufferxgboost.zip\ndrwxrwxrwx\t-\t hdfs\thdfs\t0\t2018-02-15 22:04GMT\t/tmp/scoringdata\ndrwxrwxrwx\t-\t hdfs\thdfs\t0\t2018-06-04 20:55GMT\t/tmp/spark2test\n-rw-r--r--\t3\t admin\thdfs\t3404\t2018-03-21 15:43GMT\t/tmp/tdata1.csv\n-rw-r--r--\t3\t am746c\thdfs\t32995\t2018-03-27 17:30GMT\t/tmp/tdata500.csv\n-rw-r--r--\t3\t admin\thdfs\t739\t2018-03-21 15:14GMT\t/tmp/tdataold.csv\n-rwxr-xr-x\t3\t am746c\thdfs\t733\t2018-04-12 06:34GMT\t/tmp/test.py\n-rwxrwxrwx\t3\t m09286\thdfs\t256\t2018-05-10 22:43GMT\t/tmp/testabhi.py\ndrwxr-xr-x\t-\t ambariqa\thdfs\t0\t2018-02-20 17:48GMT\t/tmp/tezsmokeinput\ndrwxr-xr-x\t-\t ambariqa\thdfs\t0\t2018-04-30 20:47GMT\t/tmp/tezsmokeoutput\n-rwxrwxrwx\t3\t m09286\thdfs\t256\t2018-05-11 21:59GMT\t/tmp/tmp.py\ndrwxr-xr-x\t-\t m09286\thdfs\t0\t2018-06-07 18:48GMT\t/tmp/trainingdata\n-rwxr-xr-x\t3\t spark\thdfs\t1364\t2018-04-23 01:00GMT\t/tmp/wordcount.py\ndrwxr-xr-x\t-\t lf6847\thdfs\t0\t2018-05-24 22:33GMT\t/tmp/yev_test_spark_livy_0.0762868398255.txt\n-rw-r--r--\t3\t hdfs\thdfs\t3194354\t2018-04-22 02:22GMT\t/tmp/zips.json\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1528405926326_1314533232",
+      "id": "20180430-202220_674222221",
+      "dateCreated": "2018-06-07 21:12:06.000",
+      "dateStarted": "2018-06-07 21:20:10.000",
+      "dateFinished": "2018-06-07 21:20:11.000",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%file\n",
+      "user": "lf6847",
+      "dateUpdated": "2018-06-07 21:18:29.000",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1528406309342_-1664104097",
+      "id": "20180607-211829_136625496",
+      "dateCreated": "2018-06-07 21:18:29.000",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "HDFS Intepreter Example",
+  "id": "2DG9CMVFM",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "python:shared_process": [],
+    "livy2:shared_process": [],
+    "sh:shared_process": [],
+    "file:shared_process": [],
+    "spark:shared_process": [],
+    "livy:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
