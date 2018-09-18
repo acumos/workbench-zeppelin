@@ -1,0 +1,180 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba3deb65_cfae5cd2",
+        "filename": "docker/git-config-setup.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-18T17:37:48Z",
+      "side": 1,
+      "message": "This doesn\u0027t belong here, please remove",
+      "revId": "b84d4f5f81360ccded13608122e50ea07adbed50",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb58e952_aca5be62",
+        "filename": "docker/log4j.properties",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-18T17:37:48Z",
+      "side": 1,
+      "message": "Why is a java-style log4j properties file in a Python project??",
+      "revId": "b84d4f5f81360ccded13608122e50ea07adbed50",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64a05591_f4d7fd4d",
+        "filename": "docker/modelmanager/modelmanager.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-18T17:37:48Z",
+      "side": 1,
+      "message": "Will this be renamed to avoid \"CMLP\" ?",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 14
+      },
+      "revId": "b84d4f5f81360ccded13608122e50ea07adbed50",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "575ffbb0_7e1d041c",
+        "filename": "docker/notebook-authorization.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-18T17:37:48Z",
+      "side": 1,
+      "message": "Are these AT\u0026T UIDs?  We get beaten when we publish such strings to open source.  ;(",
+      "revId": "b84d4f5f81360ccded13608122e50ea07adbed50",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "063b88f5_41b2a8d8",
+        "filename": "docker/zeppelin-site.xml_CodeCloud",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-18T17:37:48Z",
+      "side": 1,
+      "message": "Maybe a CodeCloud-specific file should not be put into Gerrit?",
+      "revId": "b84d4f5f81360ccded13608122e50ea07adbed50",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cbc9775_f9d9767a",
+        "filename": "docker/zeppelin.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-18T17:37:48Z",
+      "side": 1,
+      "message": "Was this script originally by the Apache project?  Did Acumos make changes?  If it\u0027s untouched, it\u0027s wrong to assert our license.",
+      "revId": "b84d4f5f81360ccded13608122e50ea07adbed50",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa046309_e958dea1",
+        "filename": "docs/developer-guide.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-18T17:37:48Z",
+      "side": 1,
+      "message": "Pls fix line length",
+      "revId": "b84d4f5f81360ccded13608122e50ea07adbed50",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38973963_859c976a",
+        "filename": "docs/developer-guide.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-18T17:37:48Z",
+      "side": 1,
+      "message": "Pls fix indentation so it looks pretty in RST/Sphinx generated output",
+      "revId": "b84d4f5f81360ccded13608122e50ea07adbed50",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "218aaacb_6f3fbe98",
+        "filename": "docs/index.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-18T17:37:48Z",
+      "side": 1,
+      "message": "Pls fix line length to match text",
+      "revId": "b84d4f5f81360ccded13608122e50ea07adbed50",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9565751_ac1df05c",
+        "filename": "docs/overview.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-18T17:37:48Z",
+      "side": 1,
+      "message": "Pls fix line length",
+      "revId": "b84d4f5f81360ccded13608122e50ea07adbed50",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
