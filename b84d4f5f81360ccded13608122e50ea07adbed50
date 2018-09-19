@@ -127,6 +127,24 @@
     },
     {
       "key": {
+        "uuid": "70404f5b_afdc283f",
+        "filename": "docs/developer-guide.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 260
+      },
+      "writtenOn": "2018-09-19T19:43:19Z",
+      "side": 1,
+      "message": "fix which line length?",
+      "parentUuid": "fa046309_e958dea1",
+      "revId": "b84d4f5f81360ccded13608122e50ea07adbed50",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38973963_859c976a",
         "filename": "docs/developer-guide.rst",
         "patchSetId": 5
@@ -172,6 +190,24 @@
       "writtenOn": "2018-09-18T17:37:48Z",
       "side": 1,
       "message": "Pls fix line length",
+      "revId": "b84d4f5f81360ccded13608122e50ea07adbed50",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0fa0807_c66d896d",
+        "filename": "docs/overview.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 260
+      },
+      "writtenOn": "2018-09-19T19:43:19Z",
+      "side": 1,
+      "message": "What line length needs to fix? is that paragraph about Zeppelin, or the two \u003d\u003d\u003d\u003d\u003d lines surrounding \"Acumos Zeppelin Overview\"?",
+      "parentUuid": "f9565751_ac1df05c",
       "revId": "b84d4f5f81360ccded13608122e50ea07adbed50",
       "serverId": "655300a2-7a56-4504-9153-881edd907bea",
       "unresolved": false
