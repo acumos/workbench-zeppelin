@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8406e05_8b99a285",
+        "filename": "docker/datasource/datasource.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-19T21:18:28Z",
+      "side": 1,
+      "message": "comment is nice, better if file starts with this:\n\n#!/usr/bin/env python2",
+      "revId": "35c6616053231ed77b74db945589fddd629f8f39",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23cad804_0f690b3c",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-19T21:18:28Z",
+      "side": 1,
+      "message": "Please move this line of equals signs up.  Desired format:\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nAcumos Zeppelin Release Notes\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\nRelease 1.0, 18 Sep 2018\n------------------------\n\n* Docker image ....",
+      "revId": "35c6616053231ed77b74db945589fddd629f8f39",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
