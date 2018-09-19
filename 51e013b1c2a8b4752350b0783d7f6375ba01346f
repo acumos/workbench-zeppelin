@@ -1,0 +1,181 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f6c1598_30d6fbe5",
+        "filename": "docker/kerberos/pull_krb_from_acumos_datasource.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-19T19:53:33Z",
+      "side": 1,
+      "message": "use $0",
+      "range": {
+        "startLine": 19,
+        "startChar": 19,
+        "endLine": 19,
+        "endChar": 50
+      },
+      "revId": "51e013b1c2a8b4752350b0783d7f6375ba01346f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff308b90_6c88a798",
+        "filename": "docker/log4j.properties",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-19T19:53:33Z",
+      "side": 1,
+      "message": "I really think a configuration file for Java logging system Log4J doesn\u0027t belong in this non-Java project; why is it here?  Please add a comment if it must be here, it just looks odd",
+      "revId": "51e013b1c2a8b4752350b0783d7f6375ba01346f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "efe47ad1_d8b87ef9",
+        "filename": "docker/modelmanager/modelmanager.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-19T19:53:33Z",
+      "side": 1,
+      "message": "should probably have a header that indicates python2 vs python3, right?",
+      "revId": "51e013b1c2a8b4752350b0783d7f6375ba01346f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1c3a8b5_40ecfd94",
+        "filename": "docker/notebook/2BYEZ5EVK/note.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-19T19:53:33Z",
+      "side": 1,
+      "message": "What is this data? Why are there so many note.json files in this commit?  Is any of the data sensitive or proprietary?",
+      "revId": "51e013b1c2a8b4752350b0783d7f6375ba01346f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7abd9aee_193ea9f3",
+        "filename": "docker/zeppelin-site.xml_git",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-19T19:53:33Z",
+      "side": 1,
+      "message": "Why _git file?",
+      "revId": "51e013b1c2a8b4752350b0783d7f6375ba01346f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "643afb02_fdaab43e",
+        "filename": "docs/overview.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-19T19:53:33Z",
+      "side": 1,
+      "message": "please fix URL path",
+      "range": {
+        "startLine": 35,
+        "startChar": 41,
+        "endLine": 35,
+        "endChar": 73
+      },
+      "revId": "51e013b1c2a8b4752350b0783d7f6375ba01346f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e33d5ef_ba3054a8",
+        "filename": "docs/overview.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-19T19:53:33Z",
+      "side": 1,
+      "message": "this is not on-boarding, please fix URL",
+      "range": {
+        "startLine": 39,
+        "startChar": 36,
+        "endLine": 39,
+        "endChar": 64
+      },
+      "revId": "51e013b1c2a8b4752350b0783d7f6375ba01346f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48765a24_10678bb4",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-19T19:53:33Z",
+      "side": 1,
+      "message": "This is a level-1 heading line, please move it up so it appears below \"Acumos Model Management Release Notes\", then use a format like this\n\nRelease 1.0, 18 Sep 2018\n------------------------\n\n* Docker image build with ...\n* Integration with Acumos...",
+      "revId": "51e013b1c2a8b4752350b0783d7f6375ba01346f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27b6d931_41f88d7d",
+        "filename": "docs/user-guide.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-19T19:53:33Z",
+      "side": 1,
+      "message": "This looks wrong",
+      "range": {
+        "startLine": 30,
+        "startChar": 20,
+        "endLine": 30,
+        "endChar": 35
+      },
+      "revId": "51e013b1c2a8b4752350b0783d7f6375ba01346f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
