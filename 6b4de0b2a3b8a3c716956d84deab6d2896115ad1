@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e23b4651_2099fcae",
+        "filename": "docker/datasource/datasource.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-20T11:32:27Z",
+      "side": 1,
+      "message": "Thank you for adding this, but I believe it only works if it\u0027s the very first line.  Please move up.",
+      "range": {
+        "startLine": 17,
+        "startChar": 3,
+        "endLine": 17,
+        "endChar": 6
+      },
+      "revId": "6b4de0b2a3b8a3c716956d84deab6d2896115ad1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a20f9a09_bbf6a3b6",
+        "filename": "docker/modelmanager/modelmanager.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-20T11:32:27Z",
+      "side": 1,
+      "message": "Please move up as line 1",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 22
+      },
+      "revId": "6b4de0b2a3b8a3c716956d84deab6d2896115ad1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
