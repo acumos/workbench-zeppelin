@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a14a1c7d_600457bc",
+        "filename": "docker/Dockerfile",
+        "patchSetId": 10
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-25T18:53:58Z",
+      "side": 1,
+      "message": "I\u0027m very concerned that we do not assert the Acumos license on top of another organization\u0027s intellectual property, which seems to be the case here.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 63
+      },
+      "revId": "1343d2d822e37fd0381d5077b753be573ad9b626",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
