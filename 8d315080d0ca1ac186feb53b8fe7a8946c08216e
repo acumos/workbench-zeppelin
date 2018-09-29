@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8166613_c3a84c2d",
+        "filename": "README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-09-29T10:44:43Z",
+      "side": 1,
+      "message": "This file basically asserts the AT\u0026T license on the whole contents of the repo.  I believe this is incorrect, and instead it must list ALL the licenses that apply here, one of which is the Apache Software Foundation as original Zeppelin author.",
+      "range": {
+        "startLine": 6,
+        "startChar": 3,
+        "endLine": 6,
+        "endChar": 10
+      },
+      "revId": "8d315080d0ca1ac186feb53b8fe7a8946c08216e",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
