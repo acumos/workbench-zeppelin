@@ -1,0 +1,199 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a4a0661_9944ae37",
+        "filename": "docker/kerberos/pull_krb_from_acumos_datasource.sh",
+        "patchSetId": 13
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-04T20:46:20Z",
+      "side": 1,
+      "message": "I think this file is completely new; not previously part of zeppelin, right? So it would be probably ok to use the Acumos license header.  But I\u0027m not sure it matters.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 2
+      },
+      "revId": "7b26aaa2fd25890776c9cff059bf3bbafad3a2f1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41eb0ef0_3e53cd5e",
+        "filename": "docker/modelmanager/__init__.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-04T20:46:20Z",
+      "side": 1,
+      "message": "Is this acronym going away from this code base? Other developers have made huge efforts to change it to something else.",
+      "range": {
+        "startLine": 1,
+        "startChar": 25,
+        "endLine": 1,
+        "endChar": 35
+      },
+      "revId": "7b26aaa2fd25890776c9cff059bf3bbafad3a2f1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c92fe3bd_5b4644d1",
+        "filename": "docker/modelmanager/modelmanager.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-04T20:46:20Z",
+      "side": 1,
+      "message": "Again I suspect this is new code and perhaps could have the Acumos header.  But this is probably ok.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 33
+      },
+      "revId": "7b26aaa2fd25890776c9cff059bf3bbafad3a2f1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42541302_fdfb5570",
+        "filename": "docker/zeppelin-conf-copy.sh",
+        "patchSetId": 13
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-04T20:46:20Z",
+      "side": 1,
+      "message": "Why the hardcoded /opt path?  Is this for general use?",
+      "range": {
+        "startLine": 18,
+        "startChar": 10,
+        "endLine": 18,
+        "endChar": 14
+      },
+      "revId": "7b26aaa2fd25890776c9cff059bf3bbafad3a2f1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf3e9dea_ab5d863b",
+        "filename": "docker/zeppelin-site.xml_git",
+        "patchSetId": 13
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-04T20:46:20Z",
+      "side": 1,
+      "message": "is this _git file necessary?  Is it just a copy of zeppelin-site.xml ?",
+      "revId": "7b26aaa2fd25890776c9cff059bf3bbafad3a2f1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "958b8085_ccf0d415",
+        "filename": "docs/developer-guide.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-04T20:46:20Z",
+      "side": 1,
+      "message": "Usually a developer guide gives instructions for changing the code, for compiling and packaging, for deploying, etc.  But this reads like a user guide.  Maybe the title is wrong?",
+      "revId": "7b26aaa2fd25890776c9cff059bf3bbafad3a2f1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "396abee1_fbe7779c",
+        "filename": "docs/overview.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-04T20:46:20Z",
+      "side": 1,
+      "message": "Invalid link, pls correct",
+      "range": {
+        "startLine": 36,
+        "startChar": 5,
+        "endLine": 36,
+        "endChar": 51
+      },
+      "revId": "7b26aaa2fd25890776c9cff059bf3bbafad3a2f1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17f1fc29_278eecf4",
+        "filename": "docs/overview.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-04T20:46:20Z",
+      "side": 1,
+      "message": "Will this have its own build job?  The doc build job is the wrong one to list here.",
+      "range": {
+        "startLine": 40,
+        "startChar": 5,
+        "endLine": 40,
+        "endChar": 67
+      },
+      "revId": "7b26aaa2fd25890776c9cff059bf3bbafad3a2f1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bebb7513_8e683534",
+        "filename": "docs/user-guide.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-04T20:46:20Z",
+      "side": 1,
+      "message": "This reads like a developer guide, how to build and deploy.  Maybe just the title is wrong?",
+      "range": {
+        "startLine": 21,
+        "startChar": 18,
+        "endLine": 21,
+        "endChar": 22
+      },
+      "revId": "7b26aaa2fd25890776c9cff059bf3bbafad3a2f1",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
