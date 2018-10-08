@@ -1,0 +1,147 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28e37bfa_fa1cdfb5",
+        "filename": "docker/Dockerfile",
+        "patchSetId": 14
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-08T12:42:15Z",
+      "side": 1,
+      "message": "Limin this file was an Apache original (not AT\u0026T), please fix the license header, sorry I missed in last review",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 33
+      },
+      "revId": "19cbe10a8c9ba8ee513da80bb27b39eb0682e910",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a239863e_8734060d",
+        "filename": "docker/git-config-setup.sh",
+        "patchSetId": 14
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-08T12:42:15Z",
+      "side": 1,
+      "message": "I see that this file is invoked from zeppelin.sh, but as written it does the wrong thing, overwrites any existing name and email with generic meaningless tokens. Can this script and its invocation be removed?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 37
+      },
+      "revId": "19cbe10a8c9ba8ee513da80bb27b39eb0682e910",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6623fcb9_78488fb3",
+        "filename": "docker/modelmanager/__init__.py",
+        "patchSetId": 14
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-08T12:42:15Z",
+      "side": 1,
+      "message": "This seems like useless code?  Import statements without any use?  Maybe my python ignorance is showing??",
+      "revId": "19cbe10a8c9ba8ee513da80bb27b39eb0682e910",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09557037_9ff86b3e",
+        "filename": "docker/modelmanager/modelmanager.py",
+        "patchSetId": 14
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-08T12:42:15Z",
+      "side": 1,
+      "message": "This cannot ever work, right?  The URL is missing?",
+      "range": {
+        "startLine": 52,
+        "startChar": 22,
+        "endLine": 52,
+        "endChar": 27
+      },
+      "revId": "19cbe10a8c9ba8ee513da80bb27b39eb0682e910",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98ce103f_a622a994",
+        "filename": "docker/zeppelin-site.xml_git",
+        "patchSetId": 14
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-08T12:42:15Z",
+      "side": 1,
+      "message": "Can this apparent duplicate file with a strange _git suffix be dropped?",
+      "revId": "19cbe10a8c9ba8ee513da80bb27b39eb0682e910",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3329706_98d8f85d",
+        "filename": "docker/zeppelin.sh",
+        "patchSetId": 14
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-08T12:42:15Z",
+      "side": 1,
+      "message": "This does inappropriate Git setup for a person who already has configured their name and email.  Why run it every time?",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 30
+      },
+      "revId": "19cbe10a8c9ba8ee513da80bb27b39eb0682e910",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc2c22d8_35f0eacd",
+        "filename": "docs/developer-guide.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-10-08T12:42:15Z",
+      "side": 1,
+      "message": "This document is so short that it\u0027s not helpful.  Is there a comprehensive developer guide at Apache that you could simply link to (NOT copy)?",
+      "revId": "19cbe10a8c9ba8ee513da80bb27b39eb0682e910",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
