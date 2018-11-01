@@ -22,6 +22,7 @@ Zeppelin Notebook Developer Guide
 
 Build
 =====
+Before build, update Dockerfile by adding HTTP and HTTPS proxies right below line FROM ubuntu:16.04, to enable downloading Zeppelin binaries from Apache website.
 
 This package may be built with:
 
